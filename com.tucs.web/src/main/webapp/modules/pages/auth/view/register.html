@@ -1,0 +1,68 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Register</h2>
+    </div>
+    <div class="panel-body">
+        <div ng-show="screenState.error" class="alert {{screenState.error.class}}" role="alert">
+            <h4>{{screenState.error.message}}</h4>
+        </div>
+        <div ng-show="screenState.success" class="alert {{screenState.success.class}}" role="alert">
+            <h4>{{screenState.success.message}}</h4>
+            <a class="btn btn-success" href="/login">Sign in now!</a>
+        </div>
+        <div ng-show="screenState.alert" class="alert {{screenState.alert.class}}" role="alert">
+            <h4>{{screenState.alert.message}}</h4>
+            <a class="btn btn-success" href="/login">Sign in now!</a>
+            <a class="btn btn-success" ng-click="openModelForgot()">Forgot your password?</a>
+        </div>
+    	<div class="row-fluid">
+			<form name="registerForm" class="form  form-horizontal" ng-submit="createRegister()" novalidate>
+				<div class="form-group" ng-class="{'has-error':(registerForm.username.$invalid && registerForm.username.$dirty) && screenState.canSave}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="username">Email:</label>
+					<div class="col-sm-6">
+						<input type="email" name="username" id="username" class="form-control" ng-model="formInputs.email" 
+							ng-blur="verifyEmail()" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':registerForm.firstName.$invalid && registerForm.firstName.$dirty  && screenState.canSave}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="firstName">First Name:</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="firstName" id="firstName" ng-model="formInputs.firstName" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':registerForm.lastName.$invalid && registerForm.lastName.$dirty  && screenState.canSave}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="lastName">Last Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="lastName" name="lastName" ng-model="formInputs.lastName" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':registerForm.phone.$invalid && registerForm.phone.$dirty}" >
+					<label class="col-sm-2 control-label" for="phone">Mobile Number</label>
+					<div class="col-sm-6">
+						<input type="number" class="form-control" name="phone" id="phone" ng-model="formInputs.phone" >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':registerForm.password.$invalid && registerForm.password.$dirty  && screenState.canSave}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="password">Password</label>
+					<div class="col-sm-6">
+						<input type="password" class="form-control" id="password" name="password" ng-model="formInputs.password" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$dirty  && screenState.canSave}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="confirmPassword">Confirm Password</label>
+					<div class="col-sm-6">
+						<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" required >
+					</div>
+				</div>
+				<div class="form-group">
+				  <div class="col-sm-offset-2 col-sm-6">
+					<button type="submit" class="btn btn-primary" ng-disabled="!screenState.canSave" >Register</button>
+					<a class="btn btn-default" href="/login" role="button">Cancel</a>
+				  </div>
+				</div>  					
+			</form>
+		</div>
+	</div>		
+</div>
+
+

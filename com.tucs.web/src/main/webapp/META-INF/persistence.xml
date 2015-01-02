@@ -1,0 +1,22 @@
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="com.tucs.jpa">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <properties>
+            <!-- this tell Hibernate to update the DDL when it starts, very useful
+                    for development, dangerous in production -->
+            <!--<property name="hibernate.hbm2ddl.auto" value="update" />-->
+
+            <!-- if this is true, hibernate will print (to stdout) the SQL it executes,
+                so you can check it to ensure it's not doing anything crazy -->
+            <!--<property name="hibernate.show_sql" value="true" />-->
+            <!--<property name="hibernate.format_sql" value="true" />-->
+
+        </properties>
+
+    </persistence-unit>
+
+    <persistence-unit name="com.tucs.jpa.legacy">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,36 @@
+<!-- Este arquivo contém as configurações padrão para geração do gráfico-->
+
+<chart 
+	caption=""
+	subCaption = ""
+	xAxisName=""
+	yAxisName=""
+	rotateYAxisName = "1"
+	labelDisplay="Rotate"
+	slantLabels="0"
+	shownames="1" 
+	showvalues="0" 
+
+	decimals="0" 
+	formatNumberScale = "0"
+	inDecimalSeparator = ","
+	inThousandSeparator = "."
+	decimalSeparator = ","
+	thousandSeparator = "."	
+	numberScaleValue="1000,1000,1000" 
+	numberScaleUnit=" Mil, Milhão, Bi"
+	yAxisMinValue = "0"
+				
+	palette="2" 
+	useRoundEdges="1" 
+	legendBorderAlpha="0"
+ 	bgColor = "FFFFFF" 
+	borderColor = "FFFFFF" 
+	canvasBgColor = "FFFFFF"
+	alternateHGridColor = "FFFFFF"
+	alternateVGridColor = "FFFFFF"
+	showShadow = "1"
+	lineThickness = "2"
+	canvasBorderThickness = "1"
+>
+</chart>

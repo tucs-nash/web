@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:tx="http://www.springframework.org/schema/tx"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:security="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           	http://www.springframework.org/schema/security
+           	http://www.springframework.org/schema/security/spring-security-3.2.xsd
+           	http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx.xsd
+           	http://www.springframework.org/schema/context 
+           	http://www.springframework.org/schema/context/spring-context.xsd" >
+    
+    <context:property-placeholder ignore-resource-not-found="true" location="WEB-INF/default.properties" />
+    
+    <security:http access-denied-page="/acess-denied" >
+        <security:intercept-url pattern="/modules/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/favicon.ico" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+        <security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/register" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <security:intercept-url pattern="/logout-success" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+   	    
+   	    <security:form-login login-page="/login"
+                  default-target-url="/"
+                  login-processing-url="/auth"
+                  authentication-failure-url="/login?error=true" />
+		
+		<security:logout logout-url="/logout" logout-success-url="/login" />
+    </security:http>
+
+    <security:authentication-manager>        
+        <security:authentication-provider ref="authenticationService" />
+    </security:authentication-manager>
+	
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+		
+	<bean id="authenticationService" class="com.tucs.business.services.security.AuthenticationServiceImpl"> 
+        <property name="userService" ref="userService"  />
+        <property name="passwordEncoder" ref="passwordEncoder"  />
+        <property name="salt" value="${auth.password_salt}" />
+    </bean>
+	
+	<bean id="userService" class="com.tucs.business.services.security.UserServiceAuthenticationImpl" >
+        <property name="userDao" ref="userDao" />
+	</bean>	
+
+    <bean id="userDao" class="com.tucs.business.dao.security.UserAuthenticationDaoImpl" />			
+    
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+        <property name="jndiName" value="java:comp/env/jdbc/tucs" />
+        <property name="resourceRef" value="true" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> 
+    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!--<property name="persistenceXmlLocation" value="classpath:persistence.xml" />-->
+        <property name="persistenceUnitName" value="myPersistenceUnit"/>
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.tucs.*" />
+        <property name="jpaVendorAdapter">
+        <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+            <property name="showSql" value="${hibernate.show_sql}" />
+            <property name="databasePlatform" value="org.hibernate.dialect.Oracle10gDialect" />
+        </bean>
+        </property>
+
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+            </props>
+        </property>
+
+    </bean> 		
+</beans>
