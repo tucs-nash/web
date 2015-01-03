@@ -10,15 +10,4 @@ factory('FormHelpers', [function() {
 				form.$setDirty();
 			}
 		}
-	}]).
-filter('v1Date', function($filter) {
-	var $date = $filter('date');
-	return function(dateParam) {
-
-		if('string' == typeof(dateParam)) {
-			dateParam = new V1Date(dateParam);
-		}
-
-		return $date(dateParam, 'dd/MM/yyyy');
-	}
-});
+	}]);

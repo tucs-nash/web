@@ -1,4 +1,4 @@
-TUCS.user = angular.module('tucs.index', [])
+TUCS.user = angular.module('tucs.user', [])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);

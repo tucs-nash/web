@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String defaultGetAngular() {
+    public String defaultRoot() {
         return "angular-template";
     }
 }

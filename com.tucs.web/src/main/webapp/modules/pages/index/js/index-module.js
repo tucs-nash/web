@@ -5,7 +5,10 @@ TUCS.index = angular.module('tucs.index', [])
 
         $routeProvider.
             when('/', {
-                templateUrl: '/modules/pages/index/view/index.html',
-                controller: 'IndexController'
-            });
+            	redirectTo: '/index' 
+            }).
+            when('/index', {
+            	templateUrl: '/modules/pages/index/view/index.html',
+            	controller: 'IndexController'
+        });
     }]);

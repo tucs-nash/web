@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +29,8 @@ public class UserController extends BaseController<UserService>{
 	}
 
 	@RequestMapping(value = "/user-details", method = RequestMethod.GET)
-	public ResponseEntity<EnUser> getUserDetails(@PathVariable String userId) {
-		EnUser user = getService().getUser(userId);
+	public ResponseEntity<EnUser> getUserDetails() {
+		EnUser user = getService().getUser(getUserId());
 		return new ResponseEntity<EnUser>(user, user != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 

@@ -31,6 +31,7 @@
 <script src="/modules/app/js/module.js"></script>
 <script src="/modules/core/js/localisation-module.js"></script>
 <script src="/modules/core/js/ui-module.js"></script>
+<script src="/modules/core/js/directives.js"></script>
 
 <!------------------------- PAGES ------------------------->
 <!-- AUTH -->
@@ -43,6 +44,11 @@
 <script src="/modules/pages/index/js/index-module.js"></script>
 <script src="/modules/pages/index/js/index-controller.js"></script>
 <script src="/modules/pages/index/js/index-service.js"></script>
+
+<!-- USER -->
+<script src="/modules/pages/user/js/user-module.js"></script>
+<script src="/modules/pages/user/js/user-controller.js"></script>
+<script src="/modules/pages/user/js/user-service.js"></script>
 
 
 </body>
