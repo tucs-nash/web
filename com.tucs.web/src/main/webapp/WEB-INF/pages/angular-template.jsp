@@ -11,7 +11,6 @@
 <%@include file="./header.jsp" %>
 
 <body ng-app="tucs.app">
-<%@include file="./top.jsp" %>
 <%@include file="./navigation.jsp" %>
 
 <div class="container-fluid">

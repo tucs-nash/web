@@ -9,14 +9,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tucs.business.services.interfaces.AuthenticationService;
+import com.tucs.business.services.interfaces.security.AuthenticationService;
 import com.tucs.core.model.entity.EnUser;
 
 @Controller
-public class AuthenticationController {
+public class AuthenticationController extends BaseController<AuthenticationService>{
 
 	@Autowired 
-	private AuthenticationService authenticationService;
+	public AuthenticationController(AuthenticationService service) {
+		super(service);
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String authenticateUser() {
@@ -30,19 +32,19 @@ public class AuthenticationController {
 	
 	@RequestMapping(value = "/register/{email}/check-email", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> checkEmail(@PathVariable String email) {
-		Boolean response = authenticationService.verifyEmail(email);
+		Boolean response = getService().verifyEmail(email);
 		return new ResponseEntity<Boolean>(response, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/register/{email}/forgot-password", method = RequestMethod.GET)
 	public ResponseEntity<Boolean> forgotPassword(@PathVariable String email) {
-		Boolean response = authenticationService.forgotPassword(email);
+		Boolean response = getService().forgotPassword(email);
 		return new ResponseEntity<Boolean>(response, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<EnUser> register(@RequestBody EnUser user) {
-		EnUser response = authenticationService.createUser(user);
+		EnUser response = getService().createUser(user);
 		return new ResponseEntity<EnUser>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 }
