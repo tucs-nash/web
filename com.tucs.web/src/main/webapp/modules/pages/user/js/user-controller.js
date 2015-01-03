@@ -1,5 +1,5 @@
-TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', '$modal', 'FormHelpers','UserService', 
-    function($rootScope,$scope,$routeParams,$modal,formHelpers,userService) {
+TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'FormHelpers','UserService', 
+    function($rootScope,$scope,$routeParams,formHelpers,userService) {
 	
 	$scope.screenState = {
 			success:null,

@@ -6,7 +6,6 @@
         	<form id="logoutForm" action="/logout" class="pull-right" ></form>        
             <ul class="nav navbar-nav navbar-right navbar-toolbox" ng-show="!login">
                 <li><a href="/user"><i class="fa fa-gear"></i></a></li>
-                <li><a href="#"><i class="fa fa-question"></i></a></li>
                 <li class="navbar-toolbox-user">
 					<a class="btn btn-default" href="javascript:document.getElementById('logoutForm').submit();">Logout</a>
                 </li>
