@@ -24,8 +24,11 @@ public abstract class BaseController<B extends BaseService> {
 	}
 	
 	public String getUserId() {
-		EnUser user = (EnUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return user.getId();
+		if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
+			EnUser user = (EnUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			return user.getId();			
+		}
+		return null;
 	}
 }
 

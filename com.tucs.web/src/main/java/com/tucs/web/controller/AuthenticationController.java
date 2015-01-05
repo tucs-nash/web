@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +46,23 @@ public class AuthenticationController extends BaseController<AuthenticationServi
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<EnUser> register(@RequestBody EnUser user) {
 		EnUser response = getService().createUser(user);
+		return new ResponseEntity<EnUser>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+	}
+	
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String defaultGetAngular(ModelMap model) {
+		return "angular-template";
+	}
+
+	@RequestMapping(value = "/user/user-details", method = RequestMethod.GET)
+	public ResponseEntity<EnUser> getUserDetails() {
+		EnUser user = getService().getUser(getUserId());
+		return new ResponseEntity<EnUser>(user, user != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+	}
+
+	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
+	public ResponseEntity<EnUser> updateUserDetails(@RequestBody EnUser user) {
+		EnUser response = getService().updateUser(user);
 		return new ResponseEntity<EnUser>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 }
