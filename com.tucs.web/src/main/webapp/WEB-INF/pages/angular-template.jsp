@@ -31,7 +31,6 @@
 <script src="/modules/app/js/module.js"></script>
 <script src="/modules/core/js/localisation-module.js"></script>
 <script src="/modules/core/js/ui-module.js"></script>
-<script src="/modules/core/js/directives.js"></script>
 
 <!------------------------- PAGES ------------------------->
 <!-- AUTH -->

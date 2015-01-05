@@ -10,7 +10,7 @@ TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'F
         $scope.user = data;
     }, function() {
         $scope.screenState.error = {
-            message: "Sorry there has been an error trying to retrieve the user details, please try again",
+            message: "MESSAGE_DEFAUT_UNEXPECTED",
             class: "alert-danger"
         }
     });

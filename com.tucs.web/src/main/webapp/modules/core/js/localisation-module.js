@@ -5,9 +5,9 @@ TUCS.Localisation = angular.module('tucs.localisation', [])
 		var locationService = {
 			translateContentKey: function (contentKey, params) {
 
-				if (V1.Global.contentStrings != null) {
+				if (TUCS.Global.contentStrings != null) {
 //                    var result = pageContent[contentKey];
-					var result = V1.Global.contentStrings[contentKey];
+					var result = TUCS.Global.contentStrings[contentKey];
 
 					if(params && result) {
 						for(i in params) {

@@ -26,7 +26,7 @@ TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams'
             if ($scope.formInputs.email != null) {
             	authService.verifyEmail($scope.formInputs.email, function (response) {
             		if (response) {
-            			$scope.screenState.alert = {message:'Email already exist!', class:'alert-info'};
+            			$scope.screenState.alert = {message:'MESSAGE_REGISTER_ERROR_EMAIL_VALID', class:'alert-info'};
             		} else {
             			$scope.screenState.canSave = true;
             		}
@@ -43,18 +43,18 @@ TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams'
 	        	form.$valid = false;
 	        	form.confirmPassword.$invalid = true;
 	        	form.password.$invalid = true;
-	        	$scope.screenState.error = {message:'Password and Confirm Password must be equals!', class:'alert-danger'};
+	        	$scope.screenState.error = {message:'MESSAGE_REGISTER_ERROR_PASSWORD_VALID', class:'alert-danger'};
 	        }
 
 	        formHelpers.setDirty(form);
 	        
 	        if(form.$valid) {
 	        	authService.createRegister($scope.formInputs, function(response) {
-	        		$scope.screenState.success = {message:'Register successfully done!', class:'alert-success', icon:'fa-check'}
+	        		$scope.screenState.success = {message:'MESSAGE_REGISTER_SUCCESS', class:'alert-success', icon:'fa-check'}
 	        		$scope.screenState.error = null;
 	        		cleanForm();	        		
 	        	}, function(response) {
-	        		$scope.screenState.error = {message:'An unexpected error occurred. Please try again', class:'alert-danger'};
+	        		$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
 	        		$scope.screenState.success = null;
 	        	});
 	        }
@@ -76,7 +76,7 @@ TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams'
 	    $scope.verifyEmail = verifyEmail;
 	 } else {
 		 if($routeParams.error) {
-     		$scope.screenState.error = {message:'Email and Password is incorrect!', class:'alert-danger'};			 
+     		$scope.screenState.error = {message:'MESSAGE_LOGIN_VALID', class:'alert-danger'};			 
 		 }
 	 }
     

@@ -13,4 +13,9 @@ public class IndexController {
     public String defaultRoot() {
         return "angular-template";
     }
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String defaultIndex() {
+		return "angular-template";
+	}
 }

@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav navbar-right navbar-toolbox" ng-show="!login">
                 <li><a href="/user"><i class="fa fa-gear"></i></a></li>
                 <li class="navbar-toolbox-user">
-					<a class="btn btn-default" href="javascript:document.getElementById('logoutForm').submit();">Logout</a>
+					<a class="btn btn-default" href="javascript:document.getElementById('logoutForm').submit();">{{'LABEL_LOGOUT' | i18n }}</a>
                 </li>
             </ul>
         </div>

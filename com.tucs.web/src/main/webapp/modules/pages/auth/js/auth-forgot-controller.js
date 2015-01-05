@@ -10,15 +10,15 @@ TUCS.auth.controller('ForgotController', ['$rootScope','$scope','$routeParams', 
 	        if(form.$valid) {
 	        	authService.forgotPassword($scope.email, function(response) {
             		if (response) {
-            			$scope.screenState.success = {message:'Password successfully reseted!', class:'alert-success', icon:'fa-check'}
+            			$scope.screenState.success = {message:'MESSAGE_FORGOT_SUCCESS', class:'alert-success', icon:'fa-check'}
             			$scope.screenState.modelError = null;
             			closeModal();	        		
             		} else {
-            			$scope.screenState.modelError = {message:'This email is not register', class:'alert-danger'};
+            			$scope.screenState.modelError = {message:'MESSAGE_FORGOT_ERROR_VALID', class:'alert-danger'};
             			$scope.screenState.success = null;
             		}
 	        	}, function(response) {
-	        		$scope.screenState.modelError = {message:'An unexpected error occurred. Please try again', class:'alert-danger'};
+	        		$scope.screenState.modelError = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
 	        		$scope.screenState.success = null;
 	        	});
 	        }
