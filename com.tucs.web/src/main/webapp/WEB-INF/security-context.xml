@@ -36,6 +36,7 @@
         <security:authentication-provider ref="authenticationService" />
     </security:authentication-manager>
 	
+	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 		
 	<bean id="authenticationService" class="com.tucs.business.services.security.AuthenticationServiceImpl"> 
