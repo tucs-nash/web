@@ -20,7 +20,7 @@ TUCS.Global.contentStrings = {
 		
 		"MESSAGE_FORGOT_SUCCESS": "Password successfully reseted!",
 		"MESSAGE_FORGOT_ERROR_VALID": "This email is not register",
-		"MESSAGE_LOGIN_VALID": "Email and Password is incorrect!",
+		"MESSAGE_LOGIN_VALID": "Email or Password is incorrect!",
 		"MESSAGE_REGISTER_ERROR_EMAIL_VALID": "Email already exist!",
 		"MESSAGE_REGISTER_ERROR_PASSWORD_VALID": "Password and Confirm Password must be equals!",
 		"MESSAGE_REGISTER_SUCCESS": "Register successfully done!"
