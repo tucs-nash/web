@@ -49,6 +49,16 @@
 <script src="/modules/pages/user/js/user-controller.js"></script>
 <script src="/modules/pages/user/js/user-service.js"></script>
 
+<!-- CONTROL -->
+<script src="/modules/pages/control/js/control-module.js"></script>
+<script src="/modules/pages/control/js/control-controller.js"></script>
+<script src="/modules/pages/control/js/control-service.js"></script>
+
+<!-- CONTROL MONTHLY -->
+<script src="/modules/pages/control-monthly/js/monthly-module.js"></script>
+<script src="/modules/pages/control-monthly/js/monthly-controller.js"></script>
+<script src="/modules/pages/control-monthly/js/monthly-service.js"></script>
+
 
 </body>
 </html>

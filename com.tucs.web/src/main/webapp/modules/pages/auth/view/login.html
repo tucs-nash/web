@@ -14,18 +14,18 @@
 				<form name='loginForm' action="/auth" method='POST'>
 					<div class="form-group">
 						<label for="username">{{'LABEL_EMAIL' | i18n }}</label>
-						<input type="email" name='j_username' class="form-control" id="username" placeholder="Enter email">
+						<input type="email" name='j_username' class="form-control" id="username" placeholder="{{'PLACEHOLDER_EMAIL' | i18n }}">
 					</div>
 					<div class="form-group">
 						<label for="password">{{'LABEL_PASSWORD' | i18n }}</label>
-						<input type="password" class="form-control" name='j_password' id="password" placeholder="Password">
+						<input type="password" class="form-control" name='j_password' id="password" placeholder="{{'PLACEHOLDER_PASSWORD' | i18n }}">
 					</div>
 
 					<div class="form-group">
 						<a href="#" ng-click="openModelForgot()">{{'LABEL_FORGOT' | i18n }}</a>
 					</div>
 					
-					<button type="submit" value="Login" class="btn btn-primary" >{{'LABEL_SIGN_IN' | i18n }}</button>
+					<button type="submit" class="btn btn-primary" >{{'LABEL_SIGN_IN' | i18n }}</button>
 					<a class="btn btn-default" href="/register" role="button">{{'LABEL_REGISTER' | i18n }}</a>
 				</form>
 			</div>

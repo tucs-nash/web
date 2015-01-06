@@ -1,8 +1,6 @@
 TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams', '$modal', 'FormHelpers','AuthService', 'page', 
     function($rootScope,$scope,$routeParams,$modal,formHelpers,authService, page) {
 	
-	$rootScope.login = true;
-	
 	$scope.screenState = {
 			success:null,
 			error:null,

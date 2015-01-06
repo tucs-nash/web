@@ -15,7 +15,30 @@ TUCS.Global.contentStrings = {
 		"LABEL_MOBILE_NUMBER": "Mobile Number",
 		"LABEL_CONFIRM_PASSWORD": "Confirm Password",
 		"LABEL_LOGOUT": "Logout",
+		"LABEL_NAME": "Name",
+		"LABEL_DESCRIPTION": "Description",
+		"LABEL_CURRENCY": "Currency",
+		"LABEL_SHARED": "Shared",
+		"LABEL_CLOSING": "Closing",
+		"LABEL_SAVINGS": "Savings",
+		"LABEL_SELECT": "Select",
 
+		"LABEL_CONTROL_NEW": "New Control",
+		"LABEL_CONTROL_CREATE": "Create Control",
+		"LABEL_CONTROL_START_DAY": "Start Month Day",
+		"LABEL_CONTROL_SELECT_AUTO_CLOSING": "Select Auto Closing",
+		"LABEL_CONTROL_SELECT_TYPE_SPLIT": "Select Type Share",
+		
+		"TYPE_SPLIT_GROUP": "Group",
+		"TYPE_SPLIT_PERSON": "Person",
+		"AUTO_CLOSING_NO": "No",
+		"AUTO_CLOSING_WHEN_MONTH_CHANGE": "When Month End",
+		"AUTO_CLOSING_AFTER_FIVE_DAY": "After Five Day",
+
+		"PLACEHOLDER_EMAIL": "Enter email",
+		"PLACEHOLDER_PASSWORD": "Enter password",
+		"PLACEHOLDER_CONTROL_DEFAULT_BALANCE": "Enter default balance savings",
+		
 		"MESSAGE_DEFAUT_UNEXPECTED": "An unexpected error occurred. Please try again",
 		
 		"MESSAGE_FORGOT_SUCCESS": "Password successfully reseted!",

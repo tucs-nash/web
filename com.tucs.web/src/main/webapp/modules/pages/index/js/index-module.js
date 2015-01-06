@@ -8,7 +8,11 @@ TUCS.index = angular.module('tucs.index', [])
             	redirectTo: '/index' 
             }).
             when('/index', {
-            	templateUrl: '/modules/pages/index/view/index.html',
+            	templateUrl: '/modules/core/view/redirect-view.html',
             	controller: 'IndexController'
-        });
+            }).
+            when('/index/default', {
+            	templateUrl: '/modules/pages/core/view/index.html',
+            	controller: 'IndexController'
+            });;
     }]);
