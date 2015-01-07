@@ -22,6 +22,7 @@ TUCS.Global.contentStrings = {
 		"LABEL_CLOSING": "Closing",
 		"LABEL_SAVINGS": "Savings",
 		"LABEL_SELECT": "Select",
+		"LABEL_UPDATE": "Update",
 
 		"LABEL_CONTROL_NEW": "New Control",
 		"LABEL_CONTROL_CREATE": "Create Control",

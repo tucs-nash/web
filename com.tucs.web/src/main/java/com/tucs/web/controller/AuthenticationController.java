@@ -3,6 +3,7 @@ package com.tucs.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class AuthenticationController extends BaseController<AuthenticationServi
 		return new ResponseEntity<EnUser>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 	
+	@Secured("IS_AUTHENTICATED_FULLY")
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String defaultGetAngular(ModelMap model) {
 		return "angular-template";
