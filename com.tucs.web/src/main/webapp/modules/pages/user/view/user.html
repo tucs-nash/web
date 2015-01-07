@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>User</h2>
+    </div>
+    <div class="panel-body">
+        <div ng-show="screenState.error" class="alert {{screenState.error.class}}" role="alert">
+            <h4>{{screenState.error.message}}</h4>
+        </div>
+        <div ng-show="screenState.success" class="alert {{screenState.success.class}}" role="alert">
+            <h4>{{screenState.success.message}}</h4>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+        </ul>
+        
+    	<div class="row-fluid">
+			<form name="userForm" class="form  form-horizontal" ng-submit="updateUserDetails()" novalidate>
+				<div class="form-group">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="username">Email:</label>
+					<div class="col-sm-6">
+						<input type="email" name="username" id="username" class="form-control" ng-model="user.email" readonly="readonly">
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':userForm.firstName.$invalid && userForm.firstName.$dirty}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="firstName">First Name:</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="firstName" id="firstName" ng-model="user.firstName" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':userForm.lastName.$invalid && userForm.lastName.$dirty}">
+					<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="lastName">Last Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="lastName" name="lastName" ng-model="user.lastName" required >
+					</div>
+				</div>
+				<div class="form-group" ng-class="{'has-error':userForm.phone.$invalid && userForm.phone.$dirty}" >
+					<label class="col-sm-2 control-label" for="phone">Mobile Number</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="phone" id="phone" ng-model="user.phone" >
+					</div>
+				</div>
+				<div class="form-group">
+				  <div class="col-sm-offset-2 col-sm-6">
+					<button type="submit" class="btn btn-primary" >Update</button>
+					<a class="btn btn-default" href="/" role="button">Cancel</a>
+				  </div>
+				</div>  					
+			</form>
+		</div>
+	</div>		
+</div>
+
+
