@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>User</h2>
+    </div>
+    <div class="panel-body">
+        <div ng-show="screenState.error" class="alert {{screenState.error.class}}" role="alert">
+            <h4>{{screenState.error.message}}</h4>
+        </div>
+        <div ng-show="screenState.success" class="alert {{screenState.success.class}}" role="alert">
+            <h4>{{screenState.success.message}}</h4>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a data-toggle="tab" target="_self" href="#home">Home</a></li>
+			  <li role="presentation"><a data-toggle="tab" target="_self" href="#profile">Profile</a></li>
+			  <li role="presentation"><a data-toggle="tab" target="_self" href="#messages">Messages</a></li>
+        </ul>
+        
+        <div class="tab-content">
+       	 <div id="home" class="tab-pane" >HOME</div>
+       	 <div id="profile" class="tab-pane" >PROFILE</div>
+       	 <div id="messages" class="tab-pane" >MESSAGE</div>
+	</div>		
+</div>
+
+
