@@ -8,8 +8,29 @@ TUCS.control.factory('ControlService', ['$http',function($http) {
                 errorCallback(response);
             });
         },
-        getControl:function(id, successCallback, errorCallback) {
-	    	$http.post('/control/{id}').success(function(response) {
+        getControlDetails:function(id, successCallback, errorCallback) {
+	    	$http.get('/control/'+id).success(function(response) {
+	    		successCallback(response);
+	    	}).error(function(response) {
+	    		errorCallback(response);
+	    	});
+	    },
+	    getControl:function(id, successCallback, errorCallback) {
+	    	$http.get('/control/'+id+'/edit').success(function(response) {
+	    		successCallback(response);
+	    	}).error(function(response) {
+	    		errorCallback(response);
+	    	});
+	    },
+	    createControl:function(control, successCallback, errorCallback) {
+        	$http.post('/control/create', control).success(function(response) {
+        		successCallback(response);
+        	}).error(function(response) {
+        		errorCallback(response);
+        	});
+        },
+        updateControl:function(control, successCallback, errorCallback) {
+	    	$http.post('/control/update', control).success(function(response) {
 	    		successCallback(response);
 	    	}).error(function(response) {
 	    		errorCallback(response);

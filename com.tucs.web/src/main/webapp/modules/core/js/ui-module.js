@@ -10,4 +10,15 @@ factory('FormHelpers', [function() {
 				form.$setDirty();
 			}
 		}
-	}]);
+	}]).
+filter('tcDate', function($filter) {
+	var $date = $filter('date');
+	return function(dateParam) {
+
+		if('string' == typeof(dateParam)) {
+			dateParam = new TCDate(dateParam);
+		}
+
+		return $date(dateParam, 'dd/MM/yyyy');
+	}
+});

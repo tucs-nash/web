@@ -1,5 +1,5 @@
-TUCS.index.controller('IndexController', ['$rootScope','$scope','$routeParams', '$modal', '$window','IndexService', 
-    function($rootScope,$scope,$routeParams,$modal,$window,indexService) {
+TUCS.index.controller('IndexController', ['$rootScope','$scope','$routeParams', '$window', '$modal','IndexService', 
+    function($rootScope,$scope,$routeParams,$window,$modal,indexService) {
 	    var today = new Date();
 	    var year = today.getFullYear();
 	    var month = 1 + today.getMonth();

@@ -23,12 +23,28 @@ TUCS.Global.contentStrings = {
 		"LABEL_SAVINGS": "Savings",
 		"LABEL_SELECT": "Select",
 		"LABEL_UPDATE": "Update",
+		"LABEL_PROFILE": "Profile",
+		"LABEL_JOINED": "Joined in",
+		"LABEL_OWNER": "Owner",
+		"LABEL_JOINED_IN": "Joined in",
+		"LABEL_CREATED_IN": "Created in",
+		"LABEL_UPDATED_IN": "Updated in",
 
 		"LABEL_CONTROL_NEW": "New Control",
+		"LABEL_CONTROL_EDIT": "Edit Control",
 		"LABEL_CONTROL_CREATE": "Create Control",
 		"LABEL_CONTROL_START_DAY": "Start Month Day",
 		"LABEL_CONTROL_SELECT_AUTO_CLOSING": "Select Auto Closing",
 		"LABEL_CONTROL_SELECT_TYPE_SPLIT": "Select Type Share",
+		"LABEL_CONTROL_TYPE_SPLIT": "Type Share",
+		"LABEL_CONTROL_DEFAULT_BALANCE": "Default Balance",
+		"LABEL_CONTROL_AUTO_CLOSING": "Auto Closing",
+
+		"LABEL_GROUP_TITLE_ADD": "Add Group for",
+		"LABEL_GROUP_UPDATE": "Update Group",
+		"LABEL_GROUP_ADD": "Add Group",
+		"LABEL_GROUP_AMOUT_PARTICIPANT": "Amount Participant",
+		"LABEL_GROUP_ADD_PARTICIPANT": "Add Participant",
 		
 		"TYPE_SPLIT_GROUP": "Group",
 		"TYPE_SPLIT_PERSON": "Person",
@@ -47,5 +63,6 @@ TUCS.Global.contentStrings = {
 		"MESSAGE_LOGIN_VALID": "Email or Password is incorrect!",
 		"MESSAGE_REGISTER_ERROR_EMAIL_VALID": "Email already exist!",
 		"MESSAGE_REGISTER_ERROR_PASSWORD_VALID": "Password and Confirm Password must be equals!",
-		"MESSAGE_REGISTER_SUCCESS": "Register successfully done!"
+		"MESSAGE_REGISTER_SUCCESS": "Register successfully done!",
+		"MESSAGE_CONTROL_UPDATE_SUCCESS": "Control updated successfully!"
 };

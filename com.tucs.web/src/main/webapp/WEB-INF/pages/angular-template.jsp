@@ -29,6 +29,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <!------------------------- CORE ------------------------->
+<script src="/resources/js/global.js"></script>
 <script src="/modules/app/js/module.js"></script>
 <script src="/modules/core/js/localisation-module.js"></script>
 <script src="/modules/core/js/ui-module.js"></script>
@@ -53,12 +54,18 @@
 <!-- CONTROL -->
 <script src="/modules/pages/control/js/control-module.js"></script>
 <script src="/modules/pages/control/js/control-controller.js"></script>
+<script src="/modules/pages/control/js/control-details-controller.js"></script>
 <script src="/modules/pages/control/js/control-service.js"></script>
 
 <!-- CONTROL MONTHLY -->
 <script src="/modules/pages/control-monthly/js/monthly-module.js"></script>
 <script src="/modules/pages/control-monthly/js/monthly-controller.js"></script>
 <script src="/modules/pages/control-monthly/js/monthly-service.js"></script>
+
+<!-- GROUP -->
+<script src="/modules/pages/group/js/group-module.js"></script>
+<script src="/modules/pages/group/js/group-controller.js"></script>
+<script src="/modules/pages/group/js/group-service.js"></script>
 
 
 </body>

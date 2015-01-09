@@ -5,12 +5,15 @@ TUCS.control = angular.module('tucs.control', [])
 
         $routeProvider.
             when('/control', {
-                templateUrl: '/modules/pages/control/view/control-add-update.html',
-                controller: 'ControlController'
-            });
-        $routeProvider.
-        	when('/control/:controlId', {
-        	templateUrl: '/modules/pages/control/view/control-add-update.html',
-        	controller: 'ControlController'
-        });
+            	templateUrl: '/modules/pages/control/view/control-add-update.html',
+            	controller: 'ControlController'
+            }).
+            when('/control/:controlId', {
+            	templateUrl: '/modules/pages/control/view/control-add-update.html',
+            	controller: 'ControlController'
+            }).
+            when('/control/:controlId/details', {
+            	templateUrl: '/modules/pages/control/view/control-details.html',
+            	controller: 'ControlDetailsController'
+        	});
     }]);
