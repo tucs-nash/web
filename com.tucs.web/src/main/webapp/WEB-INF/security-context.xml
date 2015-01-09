@@ -44,7 +44,7 @@
 	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 		
-	<bean id="authenticationService" class="com.tucs.business.services.security.AuthenticationServiceImpl"> 
+	<bean id="authenticationService" class="com.tucs.business.services.security.AuthenticationFilterImpl"> 
         <property name="userService" ref="userService"  />
         <property name="passwordEncoder" ref="passwordEncoder"  />
         <property name="salt" value="${auth.password_salt}" />
