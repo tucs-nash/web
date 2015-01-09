@@ -3,6 +3,7 @@ package com.tucs.web.core;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 
 /**
@@ -16,7 +17,9 @@ public class JsonObjectMapper extends ObjectMapper {
 
 	public JsonObjectMapper() {
         super();
-
+        Hibernate4Module hm = new Hibernate4Module();
+        registerModule(hm);
+        
         JodaModule jm = new JodaModule();
         registerModule(jm);
 

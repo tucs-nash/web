@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tucs.business.services.interfaces.security.AuthenticationService;
+import com.tucs.business.services.interfaces.security.AuthenticationFilter;
 import com.tucs.core.model.entity.EnUser;
 
 @Controller
-public class AuthenticationController extends BaseController<AuthenticationService>{
+public class AuthenticationController extends BaseController<AuthenticationFilter>{
 
 	@Autowired 
-	public AuthenticationController(AuthenticationService service) {
+	public AuthenticationController(AuthenticationFilter service) {
 		super(service);
 	}
 	

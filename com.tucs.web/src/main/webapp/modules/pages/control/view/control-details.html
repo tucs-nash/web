@@ -12,52 +12,48 @@
         <div ng-show="screenState.alert" class="alert {{screenState.alert.class}}" role="alert">
             <h4>{{screenState.alert.message | i18n }}</h4>
         </div>
-		<div class="row-fluid">
+		<div class="row row-fluid">
 		  <form class="form form-horizontal form-readonly">
 		    	<div class="col-md-6">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controldesc">{{'LABEL_DESCRIPTION' | i18n }}:</label>
-						<div class="col-sm-8">
-							<span id="controldesc" class="form-control-static col-md-8">{{controlDetails.control.description}}</span>
-						</div>
+						<label class="col-sm-4 control-label" for="controldesc">{{'LABEL_DESCRIPTION' | i18n }}:</label>
+						<span id="controldesc" class="form-control-static col-md-8">{{controlDetails.control.description}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2" for="controlstartday">{{'LABEL_CONTROL_START_DAY' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlstartday">{{'LABEL_CONTROL_START_DAY' | i18n }}:</label>
 						<span id="controlstartday" class="form-control-static col-md-8">{{controlDetails.control.startDay}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controlcurrency">{{'LABEL_CURRENCY' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlcurrency">{{'LABEL_CURRENCY' | i18n }}:</label>
 						<span id="controlcurrency" class="form-control-static col-md-8">{{controlDetails.control.currency.code}} - {{controlDetails.control.currency.name}}</span>
 					</div>	
 		    	</div>								
-				<div class="col-md-5">					
+				<div class="col-md-6">					
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controlshared">{{'LABEL_SHARED' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlshared">{{'LABEL_SHARED' | i18n }}:</label>
 						<span id="controlshared" class="form-control-static col-md-8">{{controlDetails.control.shared}}</span>					
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controltypesplit">{{'LABEL_CONTROL_TYPE_SPLIT' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controltypesplit">{{'LABEL_CONTROL_TYPE_SPLIT' | i18n }}:</label>
 						<span id="controltypesplit" class="form-control-static col-md-8">{{controlDetails.control.typeSplit | i18n}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controlsaving">{{'LABEL_SAVINGS' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlsaving">{{'LABEL_SAVINGS' | i18n }}:</label>
 						<span id="controlsaving" class="form-control-static col-md-8">{{controlDetails.control.hasSaving}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controldefaultbalance">{{'LABEL_CONTROL_DEFAULT_BALANCE' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controldefaultbalance">{{'LABEL_CONTROL_DEFAULT_BALANCE' | i18n }}:</label>
 						<span id="controldefaultbalance" class="form-control-static col-md-8">{{controlDetails.control.balanceDefault}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controlclosing">{{'LABEL_SAVINGS' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlclosing">{{'LABEL_SAVINGS' | i18n }}:</label>
 						<span id="controlclosing" class="form-control-static col-md-8">{{controlDetails.control.hasClosing}}</span>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="controlautoclosing">{{'LABEL_CONTROL_AUTO_CLOSING' | i18n }}:</label>
+						<label class="col-sm-4 control-label" for="controlautoclosing">{{'LABEL_CONTROL_AUTO_CLOSING' | i18n }}:</label>
 						<span id="controlautoclosing" class="form-control-static col-md-8">{{controlDetails.control.automaticClosing | i18n}}</span>
 					</div>
-					<div class="form-group">
-						<a target="_self" href="/control/{{controlDetails.control.id}}" class="btn btn-primary" >{{'LABEL_CONTROL_EDIT' | i18n}}</a>
-					</div>
+					<a target="_self" href="/control/{{controlDetails.control.id}}" class="btn btn-primary" >{{'LABEL_CONTROL_EDIT' | i18n}}</a>
 				</div> 	
 			</form>				
 		</div>

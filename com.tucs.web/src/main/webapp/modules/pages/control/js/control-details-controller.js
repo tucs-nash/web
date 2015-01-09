@@ -7,7 +7,7 @@ TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$rou
 			alert:null
 	};
 
-	controlService.getControlDetails(controlId, function(data){
+	controlService.getControlDetails($routeParams.controlId, function(data){
 		$scope.controlDetails = data;
 	}, function() {
 		$scope.screenState.error = {
