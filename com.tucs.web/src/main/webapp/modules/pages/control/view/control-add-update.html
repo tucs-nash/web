@@ -12,7 +12,7 @@
         <div ng-show="screenState.alert" class="alert {{screenState.alert.class}}" role="alert">
             <h4>{{screenState.alert.message | i18n }}</h4>
         </div>
-		<form name="controlForm" class="form  form-horizontal" ng-submit="createControl()" novalidate>
+		<form name="controlForm" class="form  form-horizontal" ng-submit="submitForm()" novalidate>
 			<div class="row-fluid">
 				<div class="col-md-5 col-md-offset-1">
 					<div class="form-group" ng-class="{'has-error':(controlForm.controlname.$invalid && controlForm.controlname.$dirty) && screenState.canSave}">
@@ -21,26 +21,29 @@
 							<input type="text" name="controlname" id="controlname" class="form-control" ng-model="formInputs.name" required >
 						</div>
 					</div>
-					<div class="form-group" ng-class="{'has-error':controlForm.controldesc.$invalid && controlForm.controldesc.$dirty  && screenState.canSave}">
+					<div class="form-group">
 						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="controldesc">{{'LABEL_DESCRIPTION' | i18n }}:</label>
 						<div class="col-sm-8">
-							<textarea id="controldesc" name="controldesc" class="form-control" ng-model="formInputs.desc" 
+							<textarea id="controldesc" name="controldesc" class="form-control" ng-model="formInputs.description" 
 								rows="5" cols="85" maxlength="100" ></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-5">					
-					<div class="form-group" ng-class="{'has-error':controlForm.controlstartday.$invalid && controlForm.controlstartday.$dirty  && screenState.canSave}">
+					<div class="form-group" ng-class="{'has-error':controlForm.controlstartday.$invalid && controlForm.controlstartday.$dirty}">
 						<label class="col-sm-4 control-label fa fa-asterisk fa-2 required-field" for="controlstartday">{{'LABEL_CONTROL_START_DAY' | i18n }}:</label>
 						<div class="col-sm-6">
-							<input type="number" class="form-control" id="controlstartday" name="controlstartday" ng-model="formInputs.startDay" required >
+		                    <select name="controlstartday" id="controlstartday" class="form-control"
+	                                ng-options="i for i in startDays" ng-model="formInputs.startDay" required>
+								<option value="">{{'LABEL_SELECT' | i18n }}</option>	                                
+	                        </select>						
 						</div>
 					</div>
 					<div class="form-group" ng-class="{'has-error':controlForm.controlcurrency.$invalid && controlForm.controlcurrency.$dirty}" >
 						<label class="col-sm-4 control-label fa fa-asterisk fa-2 required-field" for="controlcurrency">{{'LABEL_CURRENCY' | i18n }}:</label>
 						<div class="col-sm-6">
 	                        <select name="controlcurrency" id="controlcurrency" class="form-control"
-	                                ng-options="i as (i.code + ' - ' +i.name) for i in currencies" ng-model="formInputs.currency" >
+	                                ng-options="i as (i.code + ' - ' +i.name) for i in currencies" ng-model="formInputs.currency" required >
 	                            <option value="">{{'LABEL_SELECT' | i18n }}</option>
 	                        </select>
 						</div>
@@ -51,27 +54,27 @@
 						</label>
 						<div class="col-sm-6">
 	                        <select name="controltypesplit" id="controltypesplit" class="form-control"
-	                                ng-options="i as (i | i18n) for i in splities" ng-model="formInputs.typeSplit" ng-disabled="!formInputs.shared" >
+	                                ng-options="i as (i | i18n) for i in splities" ng-model="formInputs.typeSplit" ng-disabled="!formInputs.shared" ng-required="formInputs.shared" >
 	                            <option value="">{{'LABEL_CONTROL_SELECT_TYPE_SPLIT' | i18n }}</option>
 	                        </select>
 						</div>
 					</div>				
 					<div class="form-group">
-						<label class="col-sm-4 control-label"  for="controlstartday">
+						<label class="col-sm-4 control-label"  for="controlsaving">
 							<input type="checkbox" id="savings" ng-model="formInputs.hasSaving"> {{'LABEL_SAVINGS' | i18n }}
 						</label>
-						<div class="col-sm-6">
-							<input type="number" class="form-control" id="controlstartday" name="controlstartday" ng-model="formInputs.startDay" 
-								ng-disabled="!formInputs.hasSaving" placeholder="{{'PLACEHOLDER_CONTROL_DEFAULT_BALANCE' | i18n }}">
+						<div class="col-sm-6" ng-class="{'has-error':controlForm.controlsaving.$invalid && controlForm.controlsaving.$dirty}">
+							<input type="number" class="form-control" id="controlsaving" name="controlsaving" ng-model="formInputs.balanceDefault" 
+								ng-disabled="!formInputs.hasSaving" placeholder="{{'PLACEHOLDER_CONTROL_DEFAULT_BALANCE' | i18n }}" ng-required="formInputs.hasSaving" >
 						</div>
 					</div>				
 					<div class="form-group">
 						<label class="col-sm-4 control-label" for="controlautoclosing">
 							<input type="checkbox" id="closing" ng-model="formInputs.hasClosing"> {{'LABEL_CLOSING' | i18n }}
 						</label>
-						<div class="col-sm-6">
-							<select name="controlautoclosing" id="controlautoclosing" class="form-control"
-	                                ng-options="i as (i | i18n) for i in automatics" ng-model="formInputs.automaticClosing" ng-disabled="!formInputs.hasClosing" >
+						<div class="col-sm-6" ng-class="{'has-error':controlForm.controlautoclosing.$invalid && controlForm.controlautoclosing.$dirty}">
+							<select name="controlautoclosing" id="controlautoclosing" class="form-control" 
+	                                ng-options="i as (i | i18n) for i in automatics" ng-model="formInputs.automaticClosing" ng-disabled="!formInputs.hasClosing" ng-required="formInputs.hasClosing">
 	                            <option value="">{{'LABEL_CONTROL_SELECT_AUTO_CLOSING' | i18n }}</option>
 	                        </select>
 						</div>
@@ -79,7 +82,7 @@
 				</div>
 				<div class="form-group">
 				  <div class="col-sm-offset-2 col-sm-6">
-					<button type="submit" class="btn btn-primary" ng-disabled="!screenState.canSave" >{{'LABEL_CONTROL_CREATE' | i18n }}</button>
+					<button type="submit" class="btn btn-primary" ng-disabled="!screenState.canSave" >{{screenState.labelAction | i18n }}</button>
 					<a class="btn btn-default" href="{{screenState.cancelLink}}" role="button" >{{'LABEL_CANCEL' | i18n }}</a>
 				  </div>
 				</div>  					
