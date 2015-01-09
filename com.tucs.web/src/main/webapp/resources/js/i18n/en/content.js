@@ -46,6 +46,8 @@ TUCS.Global.contentStrings = {
 		"LABEL_CONTROL_TYPE_SPLIT": "Type Share",
 		"LABEL_CONTROL_DEFAULT_BALANCE": "Default Balance",
 		"LABEL_CONTROL_AUTO_CLOSING": "Auto Closing",
+		
+		"LABEL_USER_SELECT_TYPE_AACOUNT": "Select Type Account",
 
 		"LABEL_GROUP_TITLE_ADD": "Add Group for",
 		"LABEL_GROUP_UPDATE": "Update Group",

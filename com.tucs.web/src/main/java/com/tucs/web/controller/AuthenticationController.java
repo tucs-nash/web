@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tucs.business.services.interfaces.security.AuthenticationService;
+import com.tucs.core.commons.dto.ControlLookupsDto;
+import com.tucs.core.commons.dto.UserLookupsDto;
 import com.tucs.core.model.entity.EnUser;
 
 @Controller
@@ -66,5 +68,11 @@ public class AuthenticationController extends BaseController<AuthenticationServi
 	public ResponseEntity<EnUser> updateUserDetails(@RequestBody EnUser user) {
 		EnUser response = getService().updateUser(user);
 		return new ResponseEntity<EnUser>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+	}
+	
+	@RequestMapping(value = "/user/lookups", method = RequestMethod.GET)
+	public ResponseEntity<UserLookupsDto> getUserLookups() {
+		UserLookupsDto response = getService().getUserLookups();
+		return new ResponseEntity<UserLookupsDto>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 }
