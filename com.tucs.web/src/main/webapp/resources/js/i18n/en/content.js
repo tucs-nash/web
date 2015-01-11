@@ -47,13 +47,17 @@ TUCS.Global.contentStrings = {
 		"LABEL_CONTROL_DEFAULT_BALANCE": "Default Balance",
 		"LABEL_CONTROL_AUTO_CLOSING": "Auto Closing",
 		
-		"LABEL_USER_SELECT_TYPE_AACOUNT": "Select Type Account",
+		"LABEL_USER_SELECT_TYPE_ACCOUNT": "Select Type Account",
 
 		"LABEL_GROUP_TITLE_ADD": "Add Group for",
 		"LABEL_GROUP_UPDATE": "Update Group",
 		"LABEL_GROUP_ADD": "Add Group",
 		"LABEL_GROUP_AMOUT_PARTICIPANT": "Amount Participant",
 		"LABEL_GROUP_ADD_PARTICIPANT": "Add Participant",
+		
+		"TYPE_USER_ADMIN": "Admin",
+		"TYPE_USER_PREMIUM": "Premium",
+		"TYPE_USER_NORMAL": "Normal",
 		
 		"TYPE_SPLIT_GROUP": "Group",
 		"TYPE_SPLIT_PERSON": "Person",
@@ -73,5 +77,12 @@ TUCS.Global.contentStrings = {
 		"MESSAGE_REGISTER_ERROR_EMAIL_VALID": "Email already exist!",
 		"MESSAGE_REGISTER_ERROR_PASSWORD_VALID": "Password and Confirm Password must be equals!",
 		"MESSAGE_REGISTER_SUCCESS": "Register successfully done!",
-		"MESSAGE_CONTROL_UPDATE_SUCCESS": "Control updated successfully!"
+		"MESSAGE_CONTROL_UPDATE_SUCCESS": "Control updated successfully!",
+		
+		"LANGUAGE_EN": "English",
+		"LANGUAGE_ES": "Spanish",
+		"LANGUAGE_FR": "French",
+		"LANGUAGE_IT": "Italian",
+		"LANGUAGE_PT": "Portuguese"
+		
 };

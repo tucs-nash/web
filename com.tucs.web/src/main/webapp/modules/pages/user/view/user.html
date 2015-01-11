@@ -76,7 +76,7 @@
 						<div class="col-sm-6">                    
 							<select name="typeAccount" id="typeAccount" class="form-control"
 	                            ng-options="i as (i | i18n) for i in accounts" ng-model="formInputs.typeAccount">
-	                            <option value="">{{'LABEL_USER_SELECT_TYPE_AACOUNT' | i18n }}</option>
+	                            <option value="">{{'LABEL_USER_SELECT_TYPE_ACCOUNT' | i18n }}</option>
 	                        </select>
 						</div>
 					</div>
@@ -89,7 +89,23 @@
 				</form>
 		    </div>
 		    <div id="language" class="tab-pane">
-		      
+		      <form name="changeForm" class="form  form-horizontal" ng-submit="updateUserDetails()" novalidate>
+					<div class="form-group" ng-class="{'has-error':registerForm.password.$invalid && registerForm.password.$dirty  && screenState.canSave}">
+						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="userLanguage">{{'LABEL_LANGUAGE' | i18n }}:</label>
+						<div class="col-sm-6">                    
+							<select name="userLanguage" id="typeAccount" class="form-control"
+	                            ng-options="i as ('LANGUAGE_' + i | i18n) for i in accounts" ng-model="formInputs.language">
+	                            <option value="">{{'LABEL_SELECT' | i18n }}</option>
+	                        </select>
+						</div>
+					</div>
+					<div class="form-group">
+					  <div class="col-sm-offset-2 col-sm-6">
+						<button type="submit" class="btn btn-primary" >{{'LABEL_UPDATE' | i18n }}</button>
+						<a class="btn btn-default" href="/" role="button">{{'LABEL_CANCEL' | i18n }}</a>
+					  </div>
+					</div>  		
+				</form>
 		    </div>
 		  </div><!-- /.tab-content -->
 		</div><!-- /.tabbable -->

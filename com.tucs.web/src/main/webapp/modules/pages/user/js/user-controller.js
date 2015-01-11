@@ -6,8 +6,9 @@ TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'F
 			error:null
 	};
 	
-	userService.getControlLookups(function(data){
+	userService.getUserLookups(function(data){
 		$scope.accounts = data.accounts;
+		$scope.languages = data.languages;
 	}, function() {
 		$scope.screenState.error = {
 				message: "MESSAGE_DEFAUT_UNEXPECTED",
