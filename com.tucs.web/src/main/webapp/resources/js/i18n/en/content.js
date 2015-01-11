@@ -36,6 +36,13 @@ TUCS.Global.contentStrings = {
 		"LABEL_JOINED_IN": "Joined in",
 		"LABEL_CREATED_IN": "Created in",
 		"LABEL_UPDATED_IN": "Updated in",
+		"LABEL_GROUPS": "Groups",
+		"LABEL_PARTICIPANTS": "Participants",
+		"LABEL_CATEGORIES": "Categories",
+		"LABEL_CATEGORY_PARENT": "Category Parent",
+		"LABEL_CLOSINGS": "Closings",
+		"LABEL_false": "No",
+		"LABEL_true": "Yes",
 
 		"LABEL_CONTROL_NEW": "New Control",
 		"LABEL_CONTROL_EDIT": "Edit Control",
@@ -54,6 +61,9 @@ TUCS.Global.contentStrings = {
 		"LABEL_GROUP_ADD": "Add Group",
 		"LABEL_GROUP_AMOUT_PARTICIPANT": "Amount Participant",
 		"LABEL_GROUP_ADD_PARTICIPANT": "Add Participant",
+		
+		"LABEL_CATEGORY_ADD": "Add Category",
+		"LABEL_CATEGORY_TITLE_ADD": "Add Category for",
 		
 		"TYPE_USER_ADMIN": "Admin",
 		"TYPE_USER_PREMIUM": "Premium",

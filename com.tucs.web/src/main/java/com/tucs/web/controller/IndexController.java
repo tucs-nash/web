@@ -31,9 +31,14 @@ public class IndexController extends BaseController<IndexService>{
 	public String defaultIndex() {
 		return "angular-template";
 	}
+
+	@RequestMapping(value = "/index/default", method = RequestMethod.GET)
+	public String defaultIndexDefault() {
+		return "angular-template";
+	}
 	
 	@RequestMapping(value = "/index/verify", method = RequestMethod.GET)
-	public ResponseEntity<List<EnControl	>> verifyControlMonthly() {
+	public ResponseEntity<List<EnControl>> verifyControlMonthly() {
 		List<EnControl> response = getService().verifyInitialControl(getUserId());
 		return new ResponseEntity<List<EnControl>>(response, HttpStatus.OK);
 	}

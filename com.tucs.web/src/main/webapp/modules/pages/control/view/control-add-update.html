@@ -43,12 +43,12 @@
 						<label class="col-sm-4 control-label fa fa-asterisk fa-2 required-field" for="controlcurrency">{{'LABEL_CURRENCY' | i18n }}:</label>
 						<div class="col-sm-6">
 	                        <select name="controlcurrency" id="controlcurrency" class="form-control"
-	                                ng-options="i as (i.code + ' - ' +i.name) for i in currencies" ng-model="formInputs.currency" required >
+	                                ng-options="i.id as (i.code + ' - ' +i.name) for i in currencies" ng-model="formInputs.currency.id" required >
 	                            <option value="">{{'LABEL_SELECT' | i18n }}</option>
 	                        </select>
 						</div>
 					</div>				
-					<div class="form-group">
+					<div class="form-group" ng-show="formInputs.id == null">
 						<label class="col-sm-4 control-label"  for="controltypesplit">
 							<input type="checkbox" id="shared" ng-model="formInputs.shared"> {{'LABEL_SHARED' | i18n }}&nbsp
 						</label>

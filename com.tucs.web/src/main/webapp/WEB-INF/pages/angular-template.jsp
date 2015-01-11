@@ -20,13 +20,13 @@
 
 <!------------------------- FRAMEWORKS ------------------------->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/angular.js"></script>
 <script src="/resources/js/angular-route.js"></script>
 <script src="/resources/js/angular-ui-date.js"></script>
 <script src="/resources/js/ui-grid-min.js"></script>
 <script src="/resources/js/ui-bootstrap-tpls-0.12.0.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 <!------------------------- CORE ------------------------->
 <script src="/resources/js/global.js"></script>
@@ -66,6 +66,16 @@
 <script src="/modules/pages/group/js/group-module.js"></script>
 <script src="/modules/pages/group/js/group-controller.js"></script>
 <script src="/modules/pages/group/js/group-service.js"></script>
+
+<!-- PARTICIPANT -->
+<script src="/modules/pages/participant/js/participant-module.js"></script>
+<script src="/modules/pages/participant/js/participant-controller.js"></script>
+<script src="/modules/pages/participant/js/participant-service.js"></script>
+
+<!-- CATEGORY -->
+<script src="/modules/pages/category/js/category-module.js"></script>
+<script src="/modules/pages/category/js/category-controller.js"></script>
+<script src="/modules/pages/category/js/category-service.js"></script>
 
 
 </body>

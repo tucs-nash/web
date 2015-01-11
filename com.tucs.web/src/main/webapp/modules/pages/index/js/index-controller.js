@@ -11,7 +11,7 @@ TUCS.index.controller('IndexController', ['$rootScope','$scope','$routeParams', 
 				$window.location.href = '/index/default';
 				//openModalSelectControl(data);
 			} else {
-				$window.location.href = '/index/default';
+				$window.location.href = '/control/'+data[0].id+'/details';
 				//$window.location.href = '/monthly/'+data.id;
 			}
 	    }, function() {

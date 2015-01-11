@@ -53,12 +53,21 @@ TUCS.control.controller('ControlController', ['$rootScope','$scope','$routeParam
 		var form = $scope.controlForm;    
 		formHelpers.setDirty(form);
         if(form.$valid) {
-    		controlService.createControl($scope.formInputs, function(response) {
-    			$window.location.href = '/control/'+response.id+'/details';
-    			$scope.screenState.error = null;
-    		}, function(response) {
-    			$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
-    		});        		
+        	if ($scope.formInputs.id == null) {
+        		controlService.createControl($scope.formInputs, function(response) {
+        			$window.location.href = '/control/'+response.id+'/details';
+        			$scope.screenState.error = null;
+        		}, function(response) {
+        			$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
+        		});
+        	} else {
+        		controlService.updateControl($scope.formInputs, function(response) {
+        			$window.location.href = '/control/'+response.id+'/details';
+        			$scope.screenState.error = null;
+        		}, function(response) {
+        			$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
+        		});        		
+        	}
         }
     };
     $scope.submitForm = submitForm;

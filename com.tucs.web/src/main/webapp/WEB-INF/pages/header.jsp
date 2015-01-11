@@ -13,5 +13,6 @@
           rel="stylesheet" type="text/css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
     
 </head>
