@@ -76,4 +76,11 @@ public class AuthenticationController extends BaseController<AuthenticationFilte
 		UserLookupsDto response = getService().getUserLookups();
 		return new ResponseEntity<UserLookupsDto>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
+	
+	@RequestMapping(value = "/user/verifyPassword", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> verifyPassword(@RequestBody String Password, @RequestBody EnUser user) {
+		Boolean response = getService().verifyPassword(user, Password);
+		return new ResponseEntity<Boolean>(response, HttpStatus.OK);
+	}
+	
 }

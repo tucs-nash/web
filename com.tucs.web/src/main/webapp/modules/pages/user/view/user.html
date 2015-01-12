@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>{{user.firstName + ' ' + user.lastName}}</h2>
+        <h2>{{title}}</h2>
         <h5>{{user.email}}</h5>
     </div>
     <div class="panel-body">
@@ -20,20 +20,20 @@
 		  </ul>
 		  <div class="tab-content col-md-8">
 		    <div id="personal-details" class="tab-pane">
-		    	<form name="userForm" class="form  form-horizontal" ng-submit="updateUserDetails()" novalidate>
-					<div class="form-group" ng-class="{'has-error':userForm.firstName.$invalid && userForm.firstName.$dirty}">
+		    	<form name="userDetailsForm" class="form  form-horizontal" ng-submit="updateUserPersonalDetails()" novalidate>
+					<div class="form-group" ng-class="{'has-error':userDetailsForm.firstName.$invalid && userDetailsForm.firstName.$dirty}">
 						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="firstName">{{'LABEL_FIRST_NAME' | i18n }}:</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="firstName" id="firstName" ng-model="user.firstName" required >
 						</div>
 					</div>
-					<div class="form-group" ng-class="{'has-error':userForm.lastName.$invalid && userForm.lastName.$dirty}">
+					<div class="form-group" ng-class="{'has-error':userDetailsForm.lastName.$invalid && userDetailsForm.lastName.$dirty}">
 						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="lastName">{{'LABEL_LAST_NAME' | i18n }}:</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="lastName" name="lastName" ng-model="user.lastName" required >
 						</div>
 					</div>
-					<div class="form-group" ng-class="{'has-error':userForm.phone.$invalid && userForm.phone.$dirty}" >
+					<div class="form-group" ng-class="{'has-error':userDetailsForm.phone.$invalid && userDetailsForm.phone.$dirty}" >
 						<label class="col-sm-2 control-label" for="phone">{{'LABEL_MOBILE_NUMBER' | i18n }}:</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="phone" id="phone" ng-model="user.phone" >
@@ -48,17 +48,23 @@
 				</form>
 		    </div>
 		    <div id="password" class="tab-pane">
-		    	<form name="changeForm" class="form  form-horizontal" ng-submit="updateUserDetails()" novalidate>
-					<div class="form-group" ng-class="{'has-error':registerForm.password.$invalid && registerForm.password.$dirty  && screenState.canSave}">
-						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="password">{{'LABEL_PASSWORD' | i18n }}:</label>
+		    	<form name="changePassworForm" class="form  form-horizontal" ng-submit="updateUserPassword()" novalidate>
+					<div class="form-group" ng-class="{'has-error':changePassworForm.oldPassword.$invalid && changePassworForm.oldPassword.$dirty}">
+						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="oldPassword">{{'LABEL_OLD_PASSWORD' | i18n }}:</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="password" name="password" ng-model="formInputs.password" required >
+							<input type="password" class="form-control" id="oldPassword" name="oldPassword" ng-model="oldPassword" ng-blur="verifyOldPassword()" required >
 						</div>
 					</div>
-					<div class="form-group" ng-class="{'has-error':registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$dirty  && screenState.canSave}">
-						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="confirmPassword">{{'LABEL_CONFIRM_PASSWORD' | i18n }}:</label>
+					<div class="form-group" ng-class="{'has-error':changePassworForm.password.$invalid && changePassworForm.password.$dirty}">
+						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="newPassword">{{'LABEL_NEW_PASSWORD' | i18n }}:</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" required >
+							<input type="password" class="form-control" id="newPassword" name="newPassword" ng-model="newPassword" required >
+						</div>
+					</div>
+					<div class="form-group" ng-class="{'has-error':changePassworForm.confirmPassword.$invalid && changePassworForm.confirmPassword.$dirty}">
+						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="confirmNewPassword">{{'LABEL_CONFIRM_NEW_PASSWORD' | i18n }}:</label>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" ng-model="confirmNewPassword" required >
 						</div>
 					</div>
 					<div class="form-group">
@@ -93,8 +99,8 @@
 					<div class="form-group" ng-class="{'has-error':registerForm.password.$invalid && registerForm.password.$dirty  && screenState.canSave}">
 						<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="userLanguage">{{'LABEL_LANGUAGE' | i18n }}:</label>
 						<div class="col-sm-6">                    
-							<select name="userLanguage" id="typeAccount" class="form-control"
-	                            ng-options="i as ('LANGUAGE_' + i | i18n) for i in accounts" ng-model="formInputs.language">
+							<select name="userLanguage" id="userLanguage" class="form-control"
+	                            ng-options="i as ('LANGUAGE_' + i.code | i18n) for i in languages" ng-model="formInputs.language">
 	                            <option value="">{{'LABEL_SELECT' | i18n }}</option>
 	                        </select>
 						</div>
