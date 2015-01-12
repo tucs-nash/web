@@ -5,18 +5,7 @@ TUCS.group.controller('GroupController', ['$rootScope','$scope','$routeParams', 
 			success:null,
 			error:null,
 			alert:null,
-			modelError:null,
-			canSave:false,
-			cancelLink: '/index'
+			canSave:false
 	};
-		
-	groupService.startGroup($routeParams.controlId, function(data){
-		$scope.formInputs = data;
-		$scope.controlName = data.control.name;
-	}, function() {
-		$scope.screenState.error = {
-				message: "MESSAGE_DEFAUT_UNEXPECTED",
-				class: "alert-danger"
-		}
-	});	
+	
 }]);

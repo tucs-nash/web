@@ -9,14 +9,14 @@ TUCS.control.factory('ControlService', ['$http',function($http) {
             });
         },
         getControlDetails:function(id, successCallback, errorCallback) {
-	    	$http.get('/control/'+id).success(function(response) {
+	    	$http.get('/control/details/'+id).success(function(response) {
 	    		successCallback(response);
 	    	}).error(function(response) {
 	    		errorCallback(response);
 	    	});
 	    },
 	    getControl:function(id, successCallback, errorCallback) {
-	    	$http.get('/control/'+id+'/edit').success(function(response) {
+	    	$http.get('/control/edit/'+id).success(function(response) {
 	    		successCallback(response);
 	    	}).error(function(response) {
 	    		errorCallback(response);

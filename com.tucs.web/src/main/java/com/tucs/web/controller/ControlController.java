@@ -32,7 +32,11 @@ public class ControlController extends BaseController<ControlService> {
 	public String defaultControl() {
 		return "angular-template";
 	}
-	
+		
+	@RequestMapping(value = "/{controlId}", method = RequestMethod.GET)
+	public String defaultControlEdit() {
+		return "angular-template";
+	}
 	
 	@RequestMapping(value = "/{controlId}/details", method = RequestMethod.GET)
 	public String defaultControlDetails() {
@@ -45,13 +49,13 @@ public class ControlController extends BaseController<ControlService> {
 		return new ResponseEntity<ControlLookupsDto>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "/{controlId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/details/{controlId}", method = RequestMethod.GET)
 	public ResponseEntity<ControlDetailsDto> getControlDetails(@PathVariable String controlId) {
 		ControlDetailsDto response = getService().getControlDetails(controlId);
 		return new ResponseEntity<ControlDetailsDto>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "/{controlId/edit}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit/{controlId}", method = RequestMethod.GET)
 	public ResponseEntity<EnControl> getControl(@PathVariable String controlId) {
 		EnControl response = getService().getControl(controlId);
 		return new ResponseEntity<EnControl>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);

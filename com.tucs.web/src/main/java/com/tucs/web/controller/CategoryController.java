@@ -6,25 +6,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tucs.business.services.interfaces.GroupService;
+import com.tucs.business.services.interfaces.CategoryService;
 
 @Controller
-@RequestMapping("/group")
+@RequestMapping("/category")
 @Secured("IS_AUTHENTICATED_FULLY")
-public class GroupController extends BaseController<GroupService> {
+public class CategoryController extends BaseController<CategoryService> {
 
 	@Autowired
-	public GroupController(GroupService service) {
+	public CategoryController(CategoryService service) {
 		super(service);
 	}
 
 	@RequestMapping(value = "/{controlId}/add", method = RequestMethod.GET)
-	public String defaultGroupAdd() {
+	public String defaultCategoryAdd() {
 		return "angular-template";
 	}
 	
-	@RequestMapping(value = "/{groupId}/update", method = RequestMethod.GET)
-	public String defaultGroupUpdate() {
+	@RequestMapping(value = "/{categoryId}/update", method = RequestMethod.GET)
+	public String defaultCategoryUpdate() {
 		return "angular-template";
 	}
 
