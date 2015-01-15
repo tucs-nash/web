@@ -6,9 +6,6 @@ import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 
-/**
- * Created by farrells on 22/08/2014.
- */
 public class JsonObjectMapper extends ObjectMapper {
     /**
 	 * 

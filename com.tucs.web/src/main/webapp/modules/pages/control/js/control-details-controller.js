@@ -1,5 +1,5 @@
-TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$routeParams', 'FormHelpers','ControlService',  
-    function($rootScope,$scope,$routeParams,formHelpers,controlService) {
+TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$routeParams','$modal', 'FormHelpers','ControlService',  
+    function($rootScope,$scope,$routeParams,$modal,formHelpers,controlService) {
 	
 	$scope.screenState = {
 			success:null,
@@ -7,12 +7,61 @@ TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$rou
 			alert:null
 	};
 
-	controlService.getControlDetails($routeParams.controlId, function(data){
-		$scope.controlDetails = data;
-	}, function() {
-		$scope.screenState.error = {
-				message: "MESSAGE_DEFAUT_UNEXPECTED",
-				class: "alert-danger"
-		}
-	});
+	var getControlDetails = function() {
+		controlService.getControlDetails($routeParams.controlId, function(data){
+			$scope.controlDetails = data;
+			$scope.groupActive = data.control.shared;
+		}, function() {
+			$scope.screenState.error = {
+					message: "MESSAGE_DEFAUT_UNEXPECTED",
+					class: "alert-danger"
+			}
+		});
+	
+	};
+    var openModalCategory = function(controlId, categoryId) {
+    	$scope.modalParam = {
+    			category:categoryId,
+    			control: controlId
+    	}
+    	$modal.open({
+	            templateUrl: '/modules/pages/category/view/modals/category.html',
+	            controller: 'CategoryController',
+	            size: 'lg',
+	            scope: $scope
+		 });
+    };
+    var openModalParticipant = function(controlId, participantId) {
+    	$scope.modalParam = {
+    			participant:participantId,
+    			control: controlId
+    	}
+    	$modal.open({
+    		templateUrl: '/modules/pages/group/view/modals/participant.html',
+    		controller: 'ParticController',
+    		size: 'lg',
+    		scope: $scope
+    	});
+    };
+
+    var openModalGroup = function(controlId, groupId) {
+    	$scope.modalParam = {
+    			group:groupId,
+    			control: controlId
+    	}
+    	$modal.open({
+    		templateUrl: '/modules/pages/group/view/modals/group.html',
+    		controller: 'GroupController',
+    		size: 'lg',
+    		scope: $scope
+    	});
+    };
+    
+    getControlDetails();
+    
+    $scope.openModalCategory = openModalCategory;
+    $scope.openModalParticipant = openModalParticipant;
+    $scope.openModalGroup = openModalGroup;
+    $scope.getControlDetails = getControlDetails;
+
 }]);

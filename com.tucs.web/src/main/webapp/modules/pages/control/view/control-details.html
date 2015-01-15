@@ -61,11 +61,10 @@
 		</div>
 		<div class="row row-fluid">
 			<tabset>  
-		        <tab ng-if="controlDetails.control.shared" heading="{{'LABEL_GROUPS' | i18n }}" >
+		        <tab ng-if="controlDetails.control.shared" heading="{{'LABEL_GROUPS' | i18n }}" active="groupActive">
 		            <div class="container-fluid">
              			<br />
-						<a target="_self" href="/group/add/{{controlDetails.control.id}}" class="btn btn-primary">
-							{{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</a>
+							<button ng-click="openModalGroup(controlDetails.control.id, null)" class="btn btn-primary">{{'LABEL_GROUP_ADD' | i18n }}</button>
              			<br />
              			<br />
 
@@ -96,17 +95,15 @@
        			<tab ng-if="!controlDetails.control.shared" heading="{{'LABEL_PARTICIPANTS' | i18n }}" >
              		<div class="container-fluid">
              			<br />
-						<a target="_self" href="/participant/{{controlDetails.control.id}}" class="btn btn-primary">
-							{{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</a>
+						<button ng-click="openModalParticipant(controlDetails.control.id, null)" class="btn btn-primary">{{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</button>
              			<br />
-             			<br />							
+             			<br />
 			      		<table class="table table-bordered table-striped control-table">
 							<thead>
 								<tr>						
 									<th>{{'LABEL_NAME' | i18n }}</th>
 									<th>{{'LABEL_EMAIL' | i18n }}</th>
 									<th>{{'LABEL_PROFILE' | i18n }}</th>
-									<th>{{'LABEL_JOINED_IN' | i18n }}</th>
 									<th></th>
 								</tr>	
 							</thead>
@@ -114,9 +111,11 @@
 								<tr ng-repeat="participant in controlDetails.participants">
 									<td>{{participant.user.firstName}} {{participant.user.lastName}}</td>
 									<td>{{participant.user.email}}</td>
-									<td>{{participant.profile.name}}</td>
-									<td>{{participant.createdDate | tcDate}}</td>
-									<td></td>
+									<td>{{'PROFILE_' + participant.profile.code | i18n }}</td>
+									<td>
+										<a href="#" ng-click="openModalParticipant(controlDetails.control.id, participant.id)" ><i class="fa fa-pencil" ></i></a>
+										<a href="#" ng-click="" ><i class="fa fa-times" ></i></a>
+									</td>
 								</tr>					
 							</tbody>
 						</table>
@@ -125,8 +124,7 @@
        			<tab ng-if="true" heading="{{'LABEL_CATEGORIES' | i18n }}">
              		<div class="container-fluid">
              			<br />
-						<a target="_self" href="/category/{{controlDetails.control.id}}" class="btn btn-primary">
-							{{'LABEL_CATEGORY_ADD' | i18n }}</a>
+						<button ng-click="openModalCategory(controlDetails.control.id, null)" class="btn btn-primary">{{'LABEL_CATEGORY_ADD' | i18n }}</button>
              			<br />
              			<br />
 			      		<table class="table table-bordered table-striped control-table">
@@ -145,7 +143,7 @@
 									<td>{{category.parent.name}}</td>
 									<td ng-show="controlDetails.control.hasClosing">{{participant.profile.name}}</td>
 									<td>{{category.createdDate | tcDate}}</td>
-									<td></td>
+									<td><a href="#" ng-click="openModalCategory(controlDetails.control.id, category.id)" ><i class="fa fa-pencil" ></i></a></td>
 								</tr>
 							</tbody>
 						</table>             		

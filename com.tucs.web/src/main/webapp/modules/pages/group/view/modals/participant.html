@@ -1,0 +1,41 @@
+	<form name="participantForm" class="form  form-horizontal" ng-submit="modal.submitForm()" novalidate>
+        <div class="modal-header">
+            <button type="button" class="close close-modal" ng-click="closeModal()" aria-hidden="true">&times;</button>
+            <div class="modal-title"><h4>{{modal.modalState.title | i18n }} {{modal.controlName}}</h4></div>
+        </div>
+	    <div ng-show="modal.modalState.error" class="alert {{modal.modalState.error.class}}" role="alert">
+	       <h6>{{modal.modalState.error.message | i18n }}</h6>
+	    </div>		
+	    <div ng-show="modal.modalState.alert" class="alert {{modal.modalState.alert.class}}" role="alert">
+	       <h6>{{modal.modalState.alert.message | i18n }}</h6>
+	    </div>		
+		<div class="modal-body">
+			<div class="form-group" ng-class="{'has-error':(participantForm.participantemail.$invalid && participantForm.participantemail.$dirty)}">
+				<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="participantemail">{{'LABEL_EMAIL' | i18n }}:</label>
+				<div class="col-sm-8">
+					<input type="email" name="participantemail" id="participantemail" class="form-control" ng-model="modal.email" ng-disabled="modal.formInputs.id" required >
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error':(participantForm.participantprofile.$invalid && participantForm.participantprofile.$dirty)}">
+				<label class="col-sm-2 control-label" for="participantprofile">{{'LABEL_PROFILE' | i18n }}:</label>
+				<div class="col-sm-8">
+                       <select name="participantprofile" id="participantprofile" class="form-control"
+                               ng-options="i.id as ('PROFILE_' + i.code | i18n ) for i in modal.profiles" ng-model="modal.formInputs.profile.id" required>
+                           <option value="">{{'LABEL_SELECT' | i18n }}</option>
+                       </select>
+				</div>
+			</div>						
+			<div class="form-group">
+			  <div class="col-sm-offset-2 col-sm-6">
+				<button type="submit" class="btn btn-primary"> {{modal.modalState.labelAction | i18n }}</button>
+				<button type="button" class="btn btn-default" ng-click="closeModal()">{{'LABEL_CANCEL' | i18n }}</button>
+			  </div>
+			</div>  					
+		</div>
+	</form>
+    <div class="hidden" align="center"><i class="fa fa-spinner fa-5x fa-spin"></i></div>
+
+
+
+
+

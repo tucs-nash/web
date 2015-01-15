@@ -20,7 +20,12 @@
 	    <div class="container-fluid">
 	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 	            <ul class="nav navbar-nav">
-	                <li><a href="/" target="_self">Control</a></li>
+	                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Control<span class="caret"></span></a>
+	                    <ul class="dropdown-menu" role="menu">
+	                        <li><a href="/control" target="_self">{{'LABEL_CONTROL_NEW' | i18n}}</a></li>
+	                        <li><a href="/index" target="_self">{{'LABEL_CONTROL_CHANGE' | i18n}}</a></li>
+	                    </ul>
+	                </li>	                
 	                <li><a href="/" target="_self">Reports</a></li>
 	            </ul>
 	        </div>

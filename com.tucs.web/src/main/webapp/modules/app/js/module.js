@@ -15,7 +15,8 @@ TUCS.App = angular.module('tucs.app', [
     'tucs.user',
     'tucs.control',
     'tucs.monthly',
-    'tucs.group'
+    'tucs.group',
+    'tucs.category'
 ]);
 
 TUCS.App.config(['$routeProvider', '$locationProvider',

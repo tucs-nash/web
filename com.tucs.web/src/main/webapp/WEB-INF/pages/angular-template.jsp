@@ -45,6 +45,7 @@
 <script src="/modules/pages/index/js/index-module.js"></script>
 <script src="/modules/pages/index/js/index-controller.js"></script>
 <script src="/modules/pages/index/js/index-service.js"></script>
+<script src="/modules/pages/index/js/index-control-controller.js"></script>
 
 <!-- USER -->
 <script src="/modules/pages/user/js/user-module.js"></script>
@@ -65,12 +66,8 @@
 <!-- GROUP -->
 <script src="/modules/pages/group/js/group-module.js"></script>
 <script src="/modules/pages/group/js/group-controller.js"></script>
+<script src="/modules/pages/group/js/participant-controller.js"></script>
 <script src="/modules/pages/group/js/group-service.js"></script>
-
-<!-- PARTICIPANT -->
-<script src="/modules/pages/participant/js/participant-module.js"></script>
-<script src="/modules/pages/participant/js/participant-controller.js"></script>
-<script src="/modules/pages/participant/js/participant-service.js"></script>
 
 <!-- CATEGORY -->
 <script src="/modules/pages/category/js/category-module.js"></script>

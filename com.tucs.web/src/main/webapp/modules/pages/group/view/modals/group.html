@@ -1,0 +1,86 @@
+	
+        <div class="modal-header">
+            <button type="button" class="close close-modal" ng-click="closeModal()" aria-hidden="true">&times;</button>
+            <div class="modal-title"><h4>{{modal.modalState.title | i18n }} {{modal.controlName}}</h4></div>
+        </div>
+	    <div ng-show="modal.modalState.error" class="alert {{modal.modalState.error.class}}" role="alert">
+	       <h6>{{modal.modalState.error.message | i18n }}</h6>
+	    </div>		
+	    <div ng-show="modal.modalState.alert" class="alert {{modal.modalState.alert.class}}" role="alert">
+	       <h6>{{modal.modalState.alert.message | i18n }}</h6>
+	    </div>		
+		<div class="modal-body">
+			<form name="groupForm" class="form  form-horizontal" ng-submit="modal.submitForm()" novalidate>
+					<div collapse="!modal.modalState.collapse">
+						<div class="form-group" ng-class="{'has-error':(groupForm.groupname.$invalid && groupForm.groupname.$dirty)}">
+							<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="groupname">{{'LABEL_NAME' | i18n }}:</label>
+							<div class="col-sm-8">
+								<input type="text" name="groupname" id="groupname" class="form-control" ng-model="modal.formInputs.name" required >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="groupdesc">{{'LABEL_DESCRIPTION' | i18n }}:</label>
+							<div class="col-sm-8">
+								<textarea id="groupdesc" name="groupdesc" class="form-control" ng-model="modal.formInputs.description" 
+									rows="5" cols="85" maxlength="100" ></textarea>
+							</div>
+						</div>
+						<div class="form-group button-padding-left">
+							<button type="button" class="btn btn-primary" ng-show="modal.modalState.collapse" 
+								ng-click="modal.modalState.collapse = false;"> {{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</button>
+						</div>
+					</div>
+					<div collapse="modal.modalState.collapse">
+						<div class="form-group" ng-class="{'has-error':(groupForm.participantemail.$invalid && groupForm.participantemail.$dirty)}">
+							<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="participantemail">{{'LABEL_EMAIL' | i18n }}:</label>
+							<div class="col-sm-8">
+								<input type="email" name="participantemail" id="participantemail" class="form-control" ng-model="modal.formParticipant.user.email" ng-required="modal.modalState.collapse" >
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-error':(participantForm.participantprofile.$invalid && participantForm.participantprofile.$dirty)}">
+							<label class="col-sm-2 control-label" for="participantprofile">{{'LABEL_PROFILE' | i18n }}:</label>
+							<div class="col-sm-8">
+			                       <select name="participantprofile" id="participantprofile" class="form-control"
+			                               ng-options="i as ('PROFILE_' + i.code | i18n ) for i in modal.profiles" ng-model="modal.formParticipant.profile" ng-required="modal.modalState.collapse" >
+			                           <option value="">{{'LABEL_SELECT' | i18n }}</option>
+			                       </select>
+							</div>
+						</div>
+						<div class="form-group button-padding-left">
+						<button type="button" class="btn btn-primary" ng-click="modal.modalState.collapse = false;"> {{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</button>
+						<button type="button" class="btn btn-primary" ng-click="modal.modalState.collapse = true;">{{'LABEL_DONE' | i18n }}</button>						
+					</div>	
+					</div>
+		      		<table class="table table-bordered table-striped control-table">
+						<thead>
+							<tr>						
+								<th>{{'LABEL_NAME' | i18n }}</th>
+								<th>{{'LABEL_EMAIL' | i18n }}</th>
+								<th>{{'LABEL_PROFILE' | i18n }}</th>
+								<th></th>
+							</tr>	
+						</thead>
+						<tbody>
+							<tr ng-repeat="participant in modal.formGroup.enParticipants">
+								<td>{{participant.user.firstName}} {{participant.user.lastName}}</td>
+								<td>{{participant.user.email}}</td>
+								<td>{{'PROFILE_' + participant.profile.code | i18n }}</td>
+								<td>
+									<a href="#" ><i class="fa fa-pencil" ></i></a>
+									<a href="#" ng-click="" ><i class="fa fa-times" ></i></a>
+								</td>
+							</tr>					
+						</tbody>
+					</table>
+				<div class="form-group button-padding-left" ng-show="modal.modalState.collapse" >
+					<button type="submit" class="btn btn-primary"> {{modal.modalState.labelAction | i18n }}</button>
+					<button id="cancelModal" type="button" class="btn btn-default" ng-click="closeModal()">{{'LABEL_CANCEL' | i18n }}</button>
+				</div> 
+			</form>							
+		</div>
+    <div class="hidden" align="center"><i class="fa fa-spinner fa-5x fa-spin"></i></div>
+
+
+
+
+
