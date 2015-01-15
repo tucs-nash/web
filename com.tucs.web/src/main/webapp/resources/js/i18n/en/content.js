@@ -96,10 +96,10 @@ TUCS.Global.contentStrings = {
 		"MESSAGE_DEFAUT_UNEXPECTED": "An unexpected error occurred. Please try again",
 		
 		"MESSAGE_FORGOT_SUCCESS": "Password successfully reseted!",
-		"MESSAGE_FORGOT_ERROR_VALID": "This email is not register",
-		"MESSAGE_LOGIN_VALID": "Email or Password is incorrect!",
+		"MESSAGE_FORGOT_ERROR_VALID": "This email is not registred",
+		"MESSAGE_LOGIN_VALID": "Email and/or Password are incorrect!",
 		"MESSAGE_REGISTER_ERROR_EMAIL_VALID": "Email already exist!",
-		"MESSAGE_REGISTER_ERROR_PASSWORD_VALID": "Password and Confirm Password must be equals!",
+		"MESSAGE_REGISTER_ERROR_PASSWORD_VALID": "Password and Confirm Password must be the same!",
 		"MESSAGE_REGISTER_SUCCESS": "Register successfully done!",
 		"MESSAGE_CONTROL_UPDATE_SUCCESS": "Control updated successfully!",
 		"MESSAGE_PARTICIPANT_EXIST": "Participant is already in the control!",
@@ -110,6 +110,9 @@ TUCS.Global.contentStrings = {
 		"PROFILE_ADMIN_GROUP": "Administrador Group",
 		"PROFILE_USER_GROUP": "User Group",
 
+		"MESSAGE_USER_DETAILS_UPDATED_SUCCESS": "User details successfully updated",
+		"MESSAGE_CHANGE_PASSWORD_OLD_PASSWORD_INVALID": "Old password is incorrect!",
+		
 		"LANGUAGE_EN": "English",
 		"LANGUAGE_ES": "Spanish",
 		"LANGUAGE_FR": "French",
