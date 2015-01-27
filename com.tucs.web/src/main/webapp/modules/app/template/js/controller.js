@@ -1,5 +1,5 @@
-TUCS.X.controller('%Controller', ['$rootScope','$scope','$routeParams', '$modal', 'FormHelpers','XService', 
-    function($rootScope,$scope,$routeParams,$modal,formHelpers,XService) {
+TUCS.X.controller('%Controller', ['$rootScope','$scope','$routeParams', '$modal', 'CoreService','XService', 
+    function($rootScope,$scope,$routeParams,$modal,coreService,XService) {
 	
 
 }]);

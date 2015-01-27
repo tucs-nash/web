@@ -5,12 +5,11 @@
         </div>
         <div class="modal-body">
 			<div class="form-group" ng-class="{'has-error':(selectForm.control.$invalid && participantForm.control.$dirty)}">
-				<label class="control-label" for="control">{{'LABEL_CONTROL_ALL' | i18n }}:</label>
-                       <select name="control" id="control" class="control-label"
-                               ng-options="i.name for i in controls" ng-model="selectedControl" required>
-                           <option value="">{{'LABEL_CONTROL_SELECT' | i18n }}</option>
-                       </select>
-				</div>
+               <select name="control" id="control" class="control-label"
+                       ng-options="i.name for i in controls" ng-model="selectedControl" required>
+                   <option value="">{{'LABEL_CONTROL_SELECT' | i18n }}</option>
+               </select>
+			</div>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary">{{'LABEL_OK' | i18n }}</button>

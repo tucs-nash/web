@@ -1,17 +1,15 @@
-TUCS.index.controller('IndexController', ['$rootScope','$scope','$routeParams', '$window', '$modal','IndexService', 
-    function($rootScope,$scope,$routeParams,$window,$modal,indexService) {
-	    var today = new Date();
-	    var year = today.getFullYear();
-	    var month = 1 + today.getMonth();
+TUCS.index.controller('IndexController', ['$rootScope','$scope','$routeParams', '$window', '$modal','CoreService', 'IndexService',
+    function($rootScope,$scope,$routeParams,$window,$modal,coreService,indexService) {
 
-	    indexService.verifyInitialControlMonthly(function(data){
+		indexService.verifyInitialControlMonthly(function(data){
 			if (data == null || data.length == 0) {
 				$window.location.href = '/control';
 			} else if (data.length > 1) {
 				openModalSelectControl(data);
 			} else {
-				$window.location.href = '/control/'+data[0].id+'/details';
-				//$window.location.href = '/monthly/'+data.id;
+				//$window.location.href = '/control/'+data[0].id+'/details';
+    			coreService.setControl(data[0].id);
+				$window.location.href = '/monthly';
 			}
 	    }, function() {
 	        $scope.screenState.error = {

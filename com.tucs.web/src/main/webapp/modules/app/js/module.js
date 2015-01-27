@@ -16,10 +16,13 @@ TUCS.App = angular.module('tucs.app', [
     'tucs.control',
     'tucs.monthly',
     'tucs.group',
-    'tucs.category'
+    'tucs.category',
+    'tucs.transac'
 ]);
 
 TUCS.App.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
+
     }]);
+

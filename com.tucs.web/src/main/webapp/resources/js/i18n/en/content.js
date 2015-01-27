@@ -104,7 +104,8 @@ TUCS.Global.contentStrings = {
 		"MESSAGE_CONTROL_UPDATE_SUCCESS": "Control updated successfully!",
 		"MESSAGE_PARTICIPANT_EXIST": "Participant is already in the control!",
 		"MESSAGE_PARTICIPANT_INVITE": "Participant was invited to join us!",
-		"MESSAGE_CANCEL_ADD_PARTICIPANT": "Please finish the add participant!",
+		"MESSAGE_ALERT_ADD_PARTICIPANT": "Confirm your creating to add the participants",
+		"MESSAGE_ALERT_EDIT_PARTICIPANT": "Confirm your editing to add the participants",
 		
 		"PROFILE_ADMIN": "Administrador Control",
 		"PROFILE_ADMIN_GROUP": "Administrador Group",

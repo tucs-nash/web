@@ -73,20 +73,20 @@
 								<tr>
 									<th>{{'LABEL_NAME' | i18n }}</th>
 									<th>{{'LABEL_GROUP_AMOUT_PARTICIPANT' | i18n }}</th>
-									<th>{{'LABEL_OWNER' | i18n }}</th>
 									<th>{{'LABEL_CREATED_IN' | i18n }}</th>
 									<th>{{'LABEL_UPDATED_IN' | i18n }}</th>
-									<th ng-show="controlDetails.groups.lenght > 2"></th>
+									<th></th>
 								</tr>	
 							</thead>
 							<tbody>
 								<tr ng-repeat="group in controlDetails.groups">
 									<td>{{group.name}}</td>
 									<td>{{group.amountParticipant}}</td>
-									<td>{{group.ownerUser.firstName}} {{group.ownerUser.lastName}}</td>
-									<td>{{group.createdDate | tcDate }}</td>
-									<td>{{group.updatedDate | tcDate }}</td>
-									<td ng-show="controlDetails.groups.lenght > 2"></td>
+									<td>{{group.createdDate | tcDateTime}}</td>
+									<td>{{group.updatedDate | tcDateTime}}</td>
+									<td>
+										<a href="#" ng-click="openModalGroup(controlDetails.control.id, group.id)" ><i class="fa fa-pencil" ></i></a>
+									</td>
 								</tr>
 							</tbody>
 						</table>

@@ -1,5 +1,5 @@
-TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams', '$modal', 'FormHelpers','AuthService', 'page', 
-    function($rootScope,$scope,$routeParams,$modal,formHelpers,authService, page) {
+TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams', '$modal', 'CoreService','AuthService', 'page', 
+    function($rootScope,$scope,$routeParams,$modal,coreService,authService, page) {
 	
 	$scope.screenState = {
 			success:null,
@@ -44,7 +44,7 @@ TUCS.auth.controller('RegisterController', ['$rootScope','$scope','$routeParams'
 	        	$scope.screenState.error = {message:'MESSAGE_REGISTER_ERROR_PASSWORD_VALID', class:'alert-danger'};
 	        }
 
-	        formHelpers.setDirty(form);
+	        coreService.setDirty(form);
 	        
 	        if(form.$valid) {
 	        	authService.createRegister($scope.formInputs, function(response) {

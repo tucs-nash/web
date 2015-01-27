@@ -1,5 +1,5 @@
-TUCS.category.controller('CategoryController', ['$rootScope','$scope','$routeParams', '$modalInstance' ,'FormHelpers','CategoryService',
-    function($rootScope,$scope,$routeParams,$modalInstance,formHelpers,categoryService) {
+TUCS.category.controller('CategoryController', ['$rootScope','$scope','$routeParams', '$modalInstance' ,'CoreService','CategoryService',
+    function($rootScope,$scope,$routeParams,$modalInstance,coreService,categoryService) {
 	
 	$scope.modal = {
 			modalState: {
@@ -40,7 +40,7 @@ TUCS.category.controller('CategoryController', ['$rootScope','$scope','$routePar
 		
 	var submitForm = function() {
 		var form = $scope.categoryForm;    
-		formHelpers.setDirty(form);
+		coreService.setDirty(form);
         if(form.$valid) {
         	if ($scope.modal.formInputs.id == null) {
         		categoryService.createCategory($scope.modal.formInputs, function(response) {

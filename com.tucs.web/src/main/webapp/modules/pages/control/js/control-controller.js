@@ -1,5 +1,5 @@
-TUCS.control.controller('ControlController', ['$rootScope','$scope','$routeParams', '$window', 'FormHelpers','ControlService',  
-    function($rootScope,$scope,$routeParams,$window,formHelpers,controlService) {
+TUCS.control.controller('ControlController', ['$rootScope','$scope','$routeParams', '$window', 'CoreService','ControlService',  
+    function($rootScope,$scope,$routeParams,$window,coreService,controlService) {
 	
 	$scope.screenState = {
 			success:null,
@@ -23,9 +23,9 @@ TUCS.control.controller('ControlController', ['$rootScope','$scope','$routeParam
 		}
 	});
 	
-	if ($routeParams.controlId != null) {
+	if (coreService.hasControl()) {
 		$scope.screenState.labelAction = 'LABEL_CONTROL_EDIT';
-		controlService.getControl($routeParams.controlId, function(data){
+		controlService.getControl(coreService.getControl().id, function(data){
 			$scope.formInputs = data;
 		}, function() {
 			$scope.screenState.error = {
@@ -51,18 +51,19 @@ TUCS.control.controller('ControlController', ['$rootScope','$scope','$routeParam
 	
 	var submitForm = function() {
 		var form = $scope.controlForm;    
-		formHelpers.setDirty(form);
+		coreService.setDirty(form);
         if(form.$valid) {
         	if ($scope.formInputs.id == null) {
         		controlService.createControl($scope.formInputs, function(response) {
-        			$window.location.href = '/control/'+response.id+'/details';
+        			coreService.setControl(response.id);
+        			$window.location.href = '/control/details';
         			$scope.screenState.error = null;
         		}, function(response) {
         			$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};
         		});
         	} else {
         		controlService.updateControl($scope.formInputs, function(response) {
-        			$window.location.href = '/control/'+response.id+'/details';
+        			$window.location.href = '/control/details';
         			$scope.screenState.error = null;
         		}, function(response) {
         			$scope.screenState.error = {message:'MESSAGE_DEFAUT_UNEXPECTED', class:'alert-danger'};

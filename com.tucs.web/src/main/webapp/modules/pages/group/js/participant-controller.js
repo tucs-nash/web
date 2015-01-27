@@ -1,5 +1,5 @@
-TUCS.group.controller('ParticController', ['$rootScope','$scope','$routeParams', '$modalInstance', 'FormHelpers','GroupService', 
-    function($rootScope,$scope,$routeParams,$modalInstance,formHelpers,groupService) {
+TUCS.group.controller('ParticController', ['$rootScope','$scope','$routeParams', '$modalInstance', 'CoreService','GroupService', 
+    function($rootScope,$scope,$routeParams,$modalInstance,coreService,groupService) {
 	
 	$scope.modal = {
 			modalState: {
@@ -33,7 +33,7 @@ TUCS.group.controller('ParticController', ['$rootScope','$scope','$routeParams',
 	} else {
 		$scope.modal.formInputs = {
 				id : null,
-				group: $scope.modal.group,
+				group: null,
 				user: null,
 				profile: null
 		};
@@ -41,7 +41,7 @@ TUCS.group.controller('ParticController', ['$rootScope','$scope','$routeParams',
 		
 	var submitForm = function() {
 		var form = $scope.participantForm;    
-		formHelpers.setDirty(form);
+		coreService.setDirty(form);
         if(form.$valid) {
         	if ($scope.modal.formInputs.id == null) {
         		groupService.createParticipant($scope.modal.formInputs, $scope.modal.email, function(response) {

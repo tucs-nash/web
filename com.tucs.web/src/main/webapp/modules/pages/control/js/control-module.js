@@ -6,13 +6,13 @@ TUCS.control = angular.module('tucs.control', [])
         $routeProvider.
             when('/control', {
             	templateUrl: '/modules/pages/control/view/control-add-update.html',
-            	controller: 'ControlController'
+            	controller: 'ControlController' 
             }).
-            when('/control/:controlId', {
+            when('/control/edit', {
             	templateUrl: '/modules/pages/control/view/control-add-update.html',
             	controller: 'ControlController'
             }).
-            when('/control/:controlId/details', {
+            when('/control/details', {
             	templateUrl: '/modules/pages/control/view/control-details.html',
             	controller: 'ControlDetailsController'
         	});

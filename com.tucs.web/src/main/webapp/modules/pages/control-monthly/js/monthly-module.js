@@ -4,8 +4,8 @@ TUCS.monthly = angular.module('tucs.monthly', [])
         $locationProvider.html5Mode(true);
 
         $routeProvider.
-            when('/monthly/:id', {
-                templateUrl: '/modules/pages/control-monthly/view/control-monthly.html',
+            when('/monthly', {
+                templateUrl: '/modules/pages/control-monthly/view/monthly.html',
                 controller: 'ControlMonthlyController'
             });
     }]);

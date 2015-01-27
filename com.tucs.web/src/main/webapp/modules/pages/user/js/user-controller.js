@@ -1,5 +1,5 @@
-TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'FormHelpers','UserService', 
-    function($rootScope,$scope,$routeParams,formHelpers,userService) {
+TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'CoreService','UserService', 
+    function($rootScope,$scope,$routeParams,coreService,userService) {
 	
 	$scope.screenState = {
 			success:null,
@@ -41,7 +41,7 @@ TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'F
 		
 		var form = $scope.userDetailsForm;
 		
-		formHelpers.setDirty(form);
+		coreService.setDirty(form);
 		
 		if(form.$valid) {
         	userService.updateUserDetails($scope.user, function(response) {
@@ -66,7 +66,7 @@ TUCS.user.controller('UserController', ['$rootScope','$scope','$routeParams', 'F
         	$scope.screenState.error = {message:'MESSAGE_REGISTER_ERROR_PASSWORD_VALID', class:'alert-danger'};
         }
 
-        formHelpers.setDirty(form);
+        coreService.setDirty(form);
         
         if(form.$valid) {
         	$scope.user.password = $scope.newPassword;

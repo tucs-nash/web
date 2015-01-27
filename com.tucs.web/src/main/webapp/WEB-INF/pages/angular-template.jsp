@@ -74,6 +74,11 @@
 <script src="/modules/pages/category/js/category-controller.js"></script>
 <script src="/modules/pages/category/js/category-service.js"></script>
 
+<!-- TRANSACTION -->
+<script src="/modules/pages/transaction/js/transaction-module.js"></script>
+<script src="/modules/pages/transaction/js/transaction-controller.js"></script>
+<script src="/modules/pages/transaction/js/transaction-service.js"></script>
+
 
 </body>
 </html>

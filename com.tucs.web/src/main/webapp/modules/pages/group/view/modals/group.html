@@ -15,13 +15,13 @@
 						<div class="form-group" ng-class="{'has-error':(groupForm.groupname.$invalid && groupForm.groupname.$dirty)}">
 							<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="groupname">{{'LABEL_NAME' | i18n }}:</label>
 							<div class="col-sm-8">
-								<input type="text" name="groupname" id="groupname" class="form-control" ng-model="modal.formInputs.name" required >
+								<input type="text" name="groupname" id="groupname" class="form-control" ng-model="modal.formGroup.name" required >
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="groupdesc">{{'LABEL_DESCRIPTION' | i18n }}:</label>
 							<div class="col-sm-8">
-								<textarea id="groupdesc" name="groupdesc" class="form-control" ng-model="modal.formInputs.description" 
+								<textarea id="groupdesc" name="groupdesc" class="form-control" ng-model="modal.formGroup.description" 
 									rows="5" cols="85" maxlength="100" ></textarea>
 							</div>
 						</div>
@@ -34,22 +34,27 @@
 						<div class="form-group" ng-class="{'has-error':(groupForm.participantemail.$invalid && groupForm.participantemail.$dirty)}">
 							<label class="col-sm-2 control-label fa fa-asterisk fa-2 required-field" for="participantemail">{{'LABEL_EMAIL' | i18n }}:</label>
 							<div class="col-sm-8">
-								<input type="email" name="participantemail" id="participantemail" class="form-control" ng-model="modal.formParticipant.user.email" ng-required="modal.modalState.collapse" >
+								<input type="email" name="participantemail" id="participantemail" class="form-control" 
+									ng-disabled="modal.formParticipant.id" ng-model="modal.formParticipant.user.email" >
 							</div>
 						</div>
 						<div class="form-group" ng-class="{'has-error':(participantForm.participantprofile.$invalid && participantForm.participantprofile.$dirty)}">
 							<label class="col-sm-2 control-label" for="participantprofile">{{'LABEL_PROFILE' | i18n }}:</label>
 							<div class="col-sm-8">
 			                       <select name="participantprofile" id="participantprofile" class="form-control"
-			                               ng-options="i as ('PROFILE_' + i.code | i18n ) for i in modal.profiles" ng-model="modal.formParticipant.profile" ng-required="modal.modalState.collapse" >
+			                               ng-options="i as ('PROFILE_' + i.code | i18n ) for i in modal.profiles" ng-model="modal.formParticipant.profile">
 			                           <option value="">{{'LABEL_SELECT' | i18n }}</option>
 			                       </select>
 							</div>
 						</div>
 						<div class="form-group button-padding-left">
-						<button type="button" class="btn btn-primary" ng-click="modal.modalState.collapse = false;"> {{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}</button>
-						<button type="button" class="btn btn-primary" ng-click="modal.modalState.collapse = true;">{{'LABEL_DONE' | i18n }}</button>						
-					</div>	
+							<button type="button" class="btn btn-primary" ng-click="modal.addParticipant()" ng-show="!modal.formParticipant.id"> 
+								{{'LABEL_GROUP_ADD_PARTICIPANT' | i18n }}
+							</button>
+							<button type="button" class="btn btn-default" ng-click="modal.doneAddParticipant()">
+								{{'LABEL_DONE' | i18n }}
+							</button>						
+						</div>	
 					</div>
 		      		<table class="table table-bordered table-striped control-table">
 						<thead>
@@ -66,8 +71,12 @@
 								<td>{{participant.user.email}}</td>
 								<td>{{'PROFILE_' + participant.profile.code | i18n }}</td>
 								<td>
-									<a href="#" ><i class="fa fa-pencil" ></i></a>
-									<a href="#" ng-click="" ><i class="fa fa-times" ></i></a>
+									<a href="#" ng-click="modal.editParticipant(participant)">
+										<i class="fa fa-pencil" ></i>
+									</a>
+									<a href="#" ng-click="modal.deleteParticipant(participant)" ng-show="modal.formGroup.enParticipants.length > 1">
+										<i class="fa fa-times" ></i>
+									</a>
 								</td>
 							</tr>					
 						</tbody>

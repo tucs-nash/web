@@ -1,11 +1,11 @@
-TUCS.auth.controller('ForgotController', ['$rootScope','$scope','$routeParams', '$modalInstance' ,'FormHelpers','AuthService',
-    function($rootScope,$scope,$routeParams,$modalInstance,formHelpers,authService) {
+TUCS.auth.controller('ForgotController', ['$rootScope','$scope','$routeParams', '$modalInstance' ,'CoreService','AuthService',
+    function($rootScope,$scope,$routeParams,$modalInstance,coreService,authService) {
 
 		$scope.email = null;
 		
 		var forgotPassword = function() {
 			var form = $scope.forgotPasswordForm;	        
-	        formHelpers.setDirty(form);
+			coreService.setDirty(form);
 	        
 	        if(form.$valid) {
 	        	authService.forgotPassword($scope.email, function(response) {

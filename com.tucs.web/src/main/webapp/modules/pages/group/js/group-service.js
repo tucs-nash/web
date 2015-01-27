@@ -36,6 +36,13 @@ TUCS.group.factory('GroupService', ['$http',function($http) {
 	    		errorCallback(response);
 	    	});
 	    },
+        getGroup:function(group, successCallback, errorCallback) {
+	    	$http.get('/group/'+group).success(function(response) {
+	    		successCallback(response);
+	    	}).error(function(response) {
+	    		errorCallback(response);
+	    	});
+	    },
 	    createGroup:function(group, successCallback, errorCallback) {
         	$http.post('/group/create', group).success(function(response) {
         		successCallback(response);

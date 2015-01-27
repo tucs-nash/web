@@ -52,7 +52,7 @@ public class GroupParticipantController extends BaseController<GroupService> {
 	
 	@RequestMapping(value = "/{groupId}", method = RequestMethod.GET)
 	public ResponseEntity<EnGroup> getGroup(@PathVariable String groupId) {
-		EnGroup response= getService().getGroup(groupId);
+		EnGroup response= getService().getGroupWithParticipant(groupId);
 		return new ResponseEntity<EnGroup>(response, response != null ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
 	}
 	

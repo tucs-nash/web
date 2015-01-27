@@ -33,12 +33,12 @@ public class ControlController extends BaseController<ControlService> {
 		return "angular-template";
 	}
 		
-	@RequestMapping(value = "/{controlId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String defaultControlEdit() {
 		return "angular-template";
 	}
 	
-	@RequestMapping(value = "/{controlId}/details", method = RequestMethod.GET)
+	@RequestMapping(value = "/details", method = RequestMethod.GET)
 	public String defaultControlDetails() {
 		return "angular-template";
 	}

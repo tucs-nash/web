@@ -1,5 +1,5 @@
-TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$routeParams','$modal', 'FormHelpers','ControlService',  
-    function($rootScope,$scope,$routeParams,$modal,formHelpers,controlService) {
+TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$routeParams','$modal', 'CoreService','ControlService',  
+    function($rootScope,$scope,$routeParams,$modal,coreService,controlService) {
 	
 	$scope.screenState = {
 			success:null,
@@ -8,7 +8,7 @@ TUCS.control.controller('ControlDetailsController', ['$rootScope','$scope','$rou
 	};
 
 	var getControlDetails = function() {
-		controlService.getControlDetails($routeParams.controlId, function(data){
+		controlService.getControlDetails(coreService.getControl(), function(data){
 			$scope.controlDetails = data;
 			$scope.groupActive = data.control.shared;
 		}, function() {
